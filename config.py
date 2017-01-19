@@ -14,20 +14,19 @@
 
 ## INTEGRATION: modify variables in this file according to your requirements
 
-
 # strings: Your personal name and the name of your blog:
-AUTHOR_NAME = u'Karl Voit'
-BLOG_NAME = u'public voit'
+AUTHOR_NAME = u"Andreas Voit"
+BLOG_NAME = u'Blog von Andreas Voit'
 
 ## strings: Define your URLs and your name below:
-DOMAIN = u'Karl-Voit.at'
+DOMAIN = u'andreas-voit.at'
 BASE_URL = u'//' + DOMAIN
 CSS_URL = BASE_URL + '/public_voit.css'
-BLOG_LOGO = BASE_URL + '/images/public-voit_logo.svg'
+BLOG_LOGO = BASE_URL + '/images/blog-voit_logo.svg'
 DISQUS_NAME = 'publicvoit'  # gets placed in: '//publicvoit.disqus.com/embed.js'
 
 ## string: Email address to send comments to:
-COMMENT_EMAIL_ADDRESS = 'publicvoit-comment@Karl-Voit.at'
+COMMENT_EMAIL_ADDRESS = 'comment@andreas-voit.at'
 
 ## integer: Show this many article teasers on entry page
 NUMBER_OF_TEASER_ARTICLES = 15
@@ -45,16 +44,16 @@ NUMBER_OF_FEED_ARTICLES = 10
 ## string: This is the Org-mode property :ID: of your blog article which
 ##         is used for the about page of your blog.
 ## See example in: testdata/end_to_end_test/orgfiles/about-placeholder.org
-ID_OF_ABOUT_PAGE = '2014-03-09-about'
+ID_OF_ABOUT_PAGE = '2016-06-23-about'
 
 ## string: Your Twitter handle/username which is used in the HTML header
 ##         metadata (without the @ character)
-TWITTER_HANDLE = 'n0v0id'
+TWITTER_HANDLE = 'di0v0n'
 
 ## string: An image which is added to the HTML header metadata and is used
 ##         by Twitter in Twitter cards to visualize your blog (also used
 ##         as og:image)
-TWITTER_IMAGE = 'http://Karl-Voit.at/images/public-voit_T_logo_200x200.png'
+TWITTER_IMAGE = 'http://andreas-voit.at/images/blog-voit_T_logo_200x200.png'
 
 ## string: Replace "+01:00" below with your time-zone indicator
 ## This gets added to the time in order to describe time zone of the blog:
