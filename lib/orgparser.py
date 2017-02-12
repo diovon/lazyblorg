@@ -1,5 +1,5 @@
 # -*- coding: utf-8; mode: python; -*-
-# Time-stamp: <2016-11-06 14:40:38 vk>
+# Time-stamp: <2017-02-12 15:03:51 vk>
 
 import config
 import re
@@ -169,10 +169,25 @@ class OrgParser(object):
                     "OrgParser: checking id [%s]" %
                     self.__entry_data['id'])
 
-            if not 'timestamp' in self.__entry_data.keys():
+            if not 'latestupdateTS' in self.__entry_data.keys():
                 self.logging.error(
-                    "Heading does not contain a most recent timestamp")
+                    "Heading does not contain a latest update timestamp")
                 errors += 1
+            else:
+                if not type(self.__entry_data['latestupdateTS'] == datetime.datetime):
+                    self.logging.error(
+                        "Latest update timestamp is not of type datetime.datetime")
+                    errors += 1
+
+            if not 'firstpublishTS' in self.__entry_data.keys():
+                self.logging.error(
+                    "Heading does not contain a first published timestamp")
+                errors += 1
+            else:
+                if not type(self.__entry_data['firstpublishTS'] == datetime.datetime):
+                    self.logging.error(
+                        "First published timestamp is not of type datetime.datetime")
+                    errors += 1
 
             if not 'created' in self.__entry_data.keys():
                 self.logging.error(
@@ -764,10 +779,11 @@ class OrgParser(object):
                 components = self.LOG_REGEX.match(line)
                 if components:
 
-                    # extract time-stamp as datetime and add to
-                    # finished-timestamp-history
+                    # extract time-stamp as datetime
                     datetimestamp = OrgFormat.orgmode_timestamp_to_datetime(
                         components.group(self.LOG_TIMESTAMP_IDX))
+
+                    # add to finished-timestamp-history
                     if 'finished-timestamp-history' in self.__entry_data.keys():
                         self.__entry_data[
                             'finished-timestamp-history'].append(datetimestamp)
@@ -775,12 +791,21 @@ class OrgParser(object):
                         self.__entry_data[
                             'finished-timestamp-history'] = [datetimestamp]
 
-                    # (over)write timestamp of blogentry if current datetimestamp is newest
-                    if 'timestamp' in self.__entry_data.keys():
-                        if datetimestamp > self.__entry_data['timestamp']:
-                            self.__entry_data['timestamp'] = datetimestamp
+                    # (over)write latestupdateTS of blogentry if
+                    # current datetimestamp is newer:
+                    if 'latestupdateTS' in self.__entry_data.keys():
+                        if datetimestamp > self.__entry_data['latestupdateTS']:
+                            self.__entry_data['latestupdateTS'] = datetimestamp
                     else:
-                        self.__entry_data['timestamp'] = datetimestamp
+                        self.__entry_data['latestupdateTS'] = datetimestamp
+
+                    # (over)write firstpublishTS of blogentry if
+                    # current datetimestamp is older:
+                    if 'firstpublishTS' in self.__entry_data.keys():
+                        if datetimestamp < self.__entry_data['firstpublishTS']:
+                            self.__entry_data['firstpublishTS'] = datetimestamp
+                    else:
+                        self.__entry_data['firstpublishTS'] = datetimestamp
 
                 previous_line = line
                 continue

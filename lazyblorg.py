@@ -1,6 +1,6 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 # -*- coding: utf-8; mode: python; -*-
-# Time-stamp: <2016-12-18 12:07:13 vk>
+# Time-stamp: <2017-02-12 17:34:43 vk>
 
 # TODO:
 # * fix parts marked with «FIXXME»
@@ -399,14 +399,14 @@ class Lazyblorg(object):
                 continue
 
             elif metadata[entry]['created'] == previous_metadata[entry]['created'] and \
-                    metadata[entry]['timestamp'] == previous_metadata[entry]['timestamp'] and \
+                    metadata[entry]['latestupdateTS'] == previous_metadata[entry]['latestupdateTS'] and \
                     metadata[entry]['checksum'] != previous_metadata[entry]['checksum']:
                 self.logging.debug("case 7: silent update -> generate")
                 generate.append(entry)
                 continue
 
             elif metadata[entry]['created'] == previous_metadata[entry]['created'] and \
-                    metadata[entry]['timestamp'] != previous_metadata[entry]['timestamp'] and \
+                    metadata[entry]['latestupdateTS'] != previous_metadata[entry]['latestupdateTS'] and \
                     metadata[entry]['checksum'] != previous_metadata[entry]['checksum']:
                 self.logging.debug(
                     "case 8: normal update -> generate, mark_for_feed, increment_version")

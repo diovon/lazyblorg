@@ -1,5 +1,5 @@
 # -*- coding: utf-8; mode: python; -*-
-# Time-stamp: <2016-10-31 17:17:36 vk>
+# Time-stamp: <2017-02-12 15:49:59 vk>
 
 import config
 from sys import stdout, exit
@@ -222,7 +222,8 @@ class Utils(object):
         # entry example:
         # {'category': 'TEMPORAL',
         #  'level': 2,
-        #  'timestamp': datetime.datetime(2013, 8, 24, 22, 49),
+        #  'latestupdateTS': datetime.datetime(2013, 8, 24, 22, 49),
+        #  'firstpublishTS': datetime.datetime(2013, 8, 24, 22, 49),
         #  'usertags': [],
         #  'title': u'Case5: not changed since 1st generation',
         #  'lbtags': [u'blog'],
@@ -232,12 +233,19 @@ class Utils(object):
         #  'finished-timestamp-history': [datetime.datetime(2013, 8, 24, 22, 49)],
         #  'id': u'case5'}
 
-        # get oldest time-stamp out of finished_timestamp_history
-        published = Utils.get_oldest_timestamp_for_entry(entry)
-        # extract year, month, day
-        year = published[0].year
-        month = published[0].month
-        day = published[0].day
+        if 'firstpublishTS' in entry.keys():
+            published = entry['firstpublishTS']
+            # extract year, month, day
+            year = published.year
+            month = published.month
+            day = published.day
+        else:
+            # get oldest time-stamp out of finished_timestamp_history
+            published = Utils.get_oldest_timestamp_for_entry(entry)
+            # extract year, month, day
+            year = published[0].year
+            month = published[0].month
+            day = published[0].day
 
         if year not in entries_timeline_by_published.keys():
             # initialize a new year when its first entry is found:
@@ -350,8 +358,8 @@ class Utils(object):
         @param entries_timeline_by_published: dict of years with list of lists for each day with IDs to entries        """
 
         # metadata example:
-        # {u'case5': {'category': 'TEMPORAL', 'timestamp': datetime.datetime(2013, 8, 24, 22, 49), 'checksum': '511251b0827', 'created': datetime.datetime(2013, 8, 24, 22, 42)},
-        # u'case4': {'category': 'TEMPORAL', 'timestamp':
+        # {u'case5': {'category': 'TEMPORAL', 'latestupdateTS': datetime.datetime(2013, 8, 24, 22, 49), 'checksum': '511251b0827', 'created': datetime.datetime(2013, 8, 24, 22, 42)},
+        # u'case4': {'category': 'TEMPORAL', 'latestupdateTS':
         # datetime.datetime(2013, 8, 24, 22, 49), 'checksum': '0b178606638',
         # 'created': datetime.datetime(2013, 8, 24, 22, 42)}}
         metadata = {}
@@ -361,7 +369,7 @@ class Utils(object):
             # entry example:
             #{'category': 'TEMPORAL',
             # 'level': 2,
-            # 'timestamp': datetime.datetime(2013, 8, 24, 22, 49),
+            # 'latestupdateTS': datetime.datetime(2013, 8, 24, 22, 49),
             # 'usertags': [],
             # 'title': u'Case5: not changed since 1st generation',
             # 'lbtags': [u'blog'],
@@ -384,10 +392,12 @@ class Utils(object):
                 Utils.error_exit(30)
             else:
                 assert('created' in entry.keys())
-                assert('timestamp' in entry.keys())
+                assert('latestupdateTS' in entry.keys())
+                assert('firstpublishTS' in entry.keys())
                 assert('title' in entry.keys())
                 metadata[entry['id']] = {'created': entry['created'],
-                                         'timestamp': entry['timestamp'],
+                                         'latestupdateTS': entry['latestupdateTS'],
+                                         'firstpublishTS': entry['firstpublishTS'],
                                          'checksum': checksum,
                                          'title': entry['title'],
                                          'category': entry['category']}
@@ -777,13 +787,29 @@ class Utils(object):
                     newesttimestamp = timestamp
             returntimestamp = newesttimestamp
 
-        return returntimestamp, str(
-            returntimestamp.year).zfill(2), str(
-            returntimestamp.month).zfill(2), str(
-            returntimestamp.day).zfill(2), str(
-                returntimestamp.hour).zfill(2), str(
-                    returntimestamp.minute).zfill(2)
+        year, month, day, hour, minute = Utils.get_YY_MM_DD_HH_MM_from_datetime(returntimestamp)
+        return returntimestamp, year, month, day, hour, minute
 
+    @staticmethod
+    def get_YY_MM_DD_HH_MM_from_datetime(timestamp):
+        """
+        Returns zfilled strings of a datetime.datetime object as a tuple
+
+        @param timestamp: datetime object
+        @param return: year: four digit year as string
+        @param return: month: two digit month as string
+        @param return: day: two digit day as string
+        @param return: hours: two digit hours as string
+        @param return: minutes: two digit minutes as string
+        """
+
+        assert(type(timestamp) == datetime.datetime)
+
+        return str(timestamp.year).zfill(2), \
+            str(timestamp.month).zfill(2), \
+            str(timestamp.day).zfill(2), \
+            str(timestamp.hour).zfill(2), \
+            str(timestamp.minute).zfill(2)
 
 # Local Variables:
 # mode: flyspell

@@ -3,12 +3,14 @@
  *  ------------------------------------------ */
 
 /* http://html-color-codes.info/ */
+/* http://sass-lang.com/guide */
+/* http://www.w3schools.com/cssref/ */
 
 $white: #fff;
-$verylightgrey: #f9f9f9;
-$lightgrey: #e0e0e0;
-$grey: #7e7e7e; /* replacing #555 */
-$darkgrey: #252525;
+$verylightgray: #f9f9f9;
+$lightgray: #e0e0e0;
+$gray: #7e7e7e; /* replacing #555 */
+$darkgray: #252525;
 
 $darkblue: #2222ff;
 $darkaquablue: #004977;
@@ -23,7 +25,7 @@ header {
 
 body {
     background: $lightyellow;
-    color: $darkgrey;
+    color: $darkgray;
     /* font-family:Trebuchet MS,Verdana,Helvetica,sans-serif; */
     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
     padding-top: 1em;
@@ -38,6 +40,19 @@ a {
        .show-sidebar-text is only visible with horizontal-sidebar */
     display: none;
     float: right;
+}
+
+@mixin minor-contrast {
+    color: $gray
+}
+@mixin minimum-contrast {
+    color: $lightgray
+}
+.minor-contrast {
+    @include minor-contrast
+}
+.minimum-contrast {
+    @include minimum-contrast
 }
 
 @mixin show-big-search {
@@ -223,7 +238,7 @@ a {
     padding-right: 1em;*/
     border-radius: 1em;
     box-shadow: inset 0 2px 0 rgba(188, 147, 200, 0.7), -5px -4px 25px rgba(0, 0, 0, 0.3);
-    background: $verylightgrey;
+    background: $verylightgray;
     margin-bottom: 20px;
 /*    margin-left: -2em;*/
 }
@@ -311,9 +326,9 @@ a {
 	    box-shadow: -1px -1px 2px $darkaquablue;
 	}
 	&:hover {
-	    background: $grey;
+	    background: $gray;
 	    &:before {
-		border-color: transparent $grey transparent transparent;
+		border-color: transparent $gray transparent transparent;
 	    }
 	}
     }
@@ -362,6 +377,26 @@ a {
     margin-left: auto;
     margin-right: auto;
     /*padding-top: 2em;*/
+
+    tr:nth-child(even) {background-color: $verylightgray};
+
+    tr:hover {
+	color: $lightyellow;
+	background-color: $darkblue;
+    }
+
+    th {
+	background-color: $darkgray;
+	color: white;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+    }
+
+    td {
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+    }
+
 }
 
 
@@ -381,7 +416,7 @@ a {
 }
 
 .section-title {
-    color: $darkgrey;
+    color: $darkgray;
     margin-left: 1em;
 }
 
@@ -401,7 +436,7 @@ blockquote {
 	content: '\201C';
 	margin: 1em -0.15em 1em -0.15em;
 	/*color:#33a8e5;*/
-	color: $lightgrey;
+	color: $lightgray;
 	/* light-gray */
 	padding: 0.15em -0.5em -0.5em -0.5em;
 	font-size: 60px;
@@ -420,7 +455,7 @@ blockquote {
     width: auto;
     background-color: $white;
     padding: 5px;
-    border: 1px solid $lightgrey;
+    border: 1px solid $lightgray;
     font-size: 14px;
     font-family: courier new;
 }
@@ -431,7 +466,7 @@ blockquote {
     margin-right: auto;
     padding-top: 7em;
     text-align: center;
-    color: $darkgrey;
+    color: $darkgray;
     font-size: 80%;
 }
 
@@ -447,8 +482,8 @@ blockquote {
 
 .tag-pages-link-list {
     .timestamp {
+	@include minor-contrast;
 	font-size: 80%;
-	color: gray;
     }
 }
 
@@ -458,7 +493,7 @@ footer {
     padding: 0.1em;
     border-radius: 1em;
     box-shadow: inset 0 2px 0 rgba(188, 147, 200, 0.7), -5px -4px 25px rgba(0, 0, 0, 0.3);
-    background: $verylightgrey;
+    background: $verylightgray;
     text-align: center;
     color: gray;
     font-size: 80%;

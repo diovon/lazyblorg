@@ -2,6 +2,8 @@
  *  Generic stuff
  *  ------------------------------------------ */
 /* http://html-color-codes.info/ */
+/* http://sass-lang.com/guide */
+/* http://www.w3schools.com/cssref/ */
 /* replacing #555 */
 body {
   background: #fffff0;
@@ -18,6 +20,12 @@ a {
      .show-sidebar-text is only visible with horizontal-sidebar */
   display: none;
   float: right; }
+
+.minor-contrast {
+  color: #7e7e7e; }
+
+.minimum-contrast {
+  color: #e0e0e0; }
 
 /* ======================== */
 /*    Responsive Design     */
@@ -338,6 +346,19 @@ a {
   margin-left: auto;
   margin-right: auto;
   /*padding-top: 2em;*/ }
+  .common-article tr:nth-child(even), .entry-page-article tr:nth-child(even) {
+    background-color: #f9f9f9; }
+  .common-article tr:hover, .entry-page-article tr:hover {
+    color: #fffff0;
+    background-color: #2222ff; }
+  .common-article th, .entry-page-article th {
+    background-color: #252525;
+    color: white;
+    padding-left: 0.5em;
+    padding-right: 0.5em; }
+  .common-article td, .entry-page-article td {
+    padding-left: 0.5em;
+    padding-right: 0.5em; }
 
 .common-article-header-title {
   padding-bottom: 1em;
@@ -405,8 +426,8 @@ blockquote {
   padding-top: 2em; }
 
 .tag-pages-link-list .timestamp {
-  font-size: 80%;
-  color: gray; }
+  color: #7e7e7e;
+  font-size: 80%; }
 
 footer {
   padding: 0.1em;

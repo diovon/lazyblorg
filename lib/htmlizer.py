@@ -1,5 +1,5 @@
 # -*- coding: utf-8; mode: python; -*-
-# Time-stamp: <2017-01-14 17:36:33 vk>
+# Time-stamp: <2017-02-12 15:53:29 vk>
 
 import config  # lazyblorg-global settings
 import sys
@@ -224,7 +224,7 @@ class Htmlizer(object):
 
             # example entry:
             # {'level': 2,
-            # 'timestamp': datetime(2013, 2, 14, 19, 2),
+            # 'latestupdateTS': datetime(2013, 2, 14, 19, 2),
             # 'usertags': [u'mytest', u'programming'],
             # 'autotags': [u'german', u'short'],
             # 'lbtags': [u'blog'],
@@ -317,6 +317,8 @@ class Htmlizer(object):
         entry = {'content': u'',
                  'category': config.TAGS,
                  'finished-timestamp-history': [datetime(2017,1,1,0,0)],  # use hard-coded date to prevent unnecessary updates
+                 'firstpublishTS': datetime(2017,1,1,0,0),  # use hard-coded date to prevent unnecessary updates
+                 'latestupdateTS': datetime(2017,1,1,0,0),  # use hard-coded date to prevent unnecessary updates
                  'type': 'this is an entry stub for an empty tag page'
                  }
 
@@ -432,13 +434,13 @@ class Htmlizer(object):
                 continue
 
             # listentry: (examples)
-            # {'url': 'about', 'timestamp': datetime(2014, 3, 9, 14, 57), 'category': 'PERSISTENT',
+            # {'url': 'about', 'latestupdateTS': datetime(2014, 3, 9, 14, 57), 'category': 'PERSISTENT',
             #  'id': u'2014-03-09-about'}
-            # {'url': '2013/08/22/testid', 'timestamp': datetime(2013, 8, 22, 21, 6),
+            # {'url': '2013/08/22/testid', 'latestupdateTS': datetime(2013, 8, 22, 21, 6),
             #  'category': 'TEMPORAL', 'id': u'2013-08-22-testid'}
 
             blog_data_entry = self.blog_data_with_id(listentry['id'])
-            # blog_data_entry.keys() = ['category', 'level', 'timestamp', 'usertags', 'autotags', 'lbtags', 'created', 'content',
+            # blog_data_entry.keys() = ['category', 'level', 'latestupdateTS', 'usertags', 'autotags', 'lbtags', 'created', 'content',
             #                           'htmlteaser-equals-content', 'rawcontent', 'finished-timestamp-history', 'title', 'id']
 
             # omit hidden entries:
@@ -449,8 +451,8 @@ class Htmlizer(object):
             feedentry = u"""<entry>
     <title type="text">""" + blog_data_entry['title'] + """</title>
     <link href='""" + config.BASE_URL + "/" + listentry['url'] + """' />
-    <published>""" + Utils.get_oldest_timestamp_for_entry(blog_data_entry)[0].strftime('%Y-%m-%dT%H:%M:%S' + config.TIME_ZONE_ADDON) + """</published>
-    <updated>""" + Utils.get_newest_timestamp_for_entry(blog_data_entry)[0].strftime('%Y-%m-%dT%H:%M:%S' + config.TIME_ZONE_ADDON) + "</updated>\n"
+    <published>""" + blog_data_entry['firstpublishTS'].strftime('%Y-%m-%dT%H:%M:%S' + config.TIME_ZONE_ADDON) + """</published>
+    <updated>""" + blog_data_entry['latestupdateTS'].strftime('%Y-%m-%dT%H:%M:%S' + config.TIME_ZONE_ADDON) + "</updated>\n"
 
             # adding all tags:
             for tag in blog_data_entry['usertags']:
@@ -509,7 +511,7 @@ class Htmlizer(object):
         Returns a sorted list of dicts of entry-IDs and their newest time-stamp.
         Sort order ist newest time-stamp at the front.
 
-        @param: return: a sorted list like [ {'id':'a-new-entry', 'timestamp':datetime(), 'url'="<URL>"}, {...}]
+        @param: return: a sorted list like [ {'id':'a-new-entry', 'latestupdateTS':datetime(), 'url'="<URL>"}, {...}]
         """
 
         entrylist = []
@@ -517,7 +519,8 @@ class Htmlizer(object):
         for entry in self.blog_data:
             entry_to_add = {
                 'id': entry['id'],
-                'timestamp': Utils.get_newest_timestamp_for_entry(entry)[0],
+                'latestupdateTS': entry['latestupdateTS'],
+                'firstpublishTS': entry['firstpublishTS'],
                 'url': self._target_path_for_id_without_targetdir(entry['id']),
                 'category': entry['category']
             }
@@ -531,14 +534,14 @@ class Htmlizer(object):
 
         return sorted(
             entrylist,
-            key=lambda entry: entry['timestamp'],
+            key=lambda entry: entry['latestupdateTS'],
             reverse=True)
 
     def generate_entry_page(self, entry_list_by_newest_timestamp):
         """
         Generates and writes the blog entry page with sneak previews of the most recent articles/updates.
 
-        @param: entry_list_by_newest_timestamp: a sorted list like [ {'id':'a-new-entry', 'timestamp':datetime(), 'url'="<URL>"}, {...}]
+        @param: entry_list_by_newest_timestamp: a sorted list like [ {'id':'a-new-entry', 'latestupdateTS':datetime(), 'url'="<URL>"}, {...}]
         """
 
         entry_page_filename = os.path.join(self.targetdir, "index.html")
@@ -620,11 +623,11 @@ class Htmlizer(object):
                 content = content.replace('#ARTICLE-ID#', entry['id'])
 
                 year, month, day, hours, minutes = str(
-                    listentry['timestamp'].year).zfill(2), str(
-                    listentry['timestamp'].month).zfill(2), str(
-                    listentry['timestamp'].day).zfill(2), str(
-                    listentry['timestamp'].hour).zfill(2), str(
-                    listentry['timestamp'].minute).zfill(2)
+                    listentry['latestupdateTS'].year).zfill(2), str(
+                    listentry['latestupdateTS'].month).zfill(2), str(
+                    listentry['latestupdateTS'].day).zfill(2), str(
+                    listentry['latestupdateTS'].hour).zfill(2), str(
+                    listentry['latestupdateTS'].minute).zfill(2)
                 iso_timestamp = '-'.join([year, month, day]) + \
                     'T' + hours + ':' + minutes
 
@@ -1581,8 +1584,7 @@ class Htmlizer(object):
                 self.sanitize_html_characters(
                     entry['title'])))
 
-        oldesttimestamp, year, month, day, hours, minutes = Utils.get_oldest_timestamp_for_entry(
-            entry)
+        year, month, day, hours, minutes = Utils.get_YY_MM_DD_HH_MM_from_datetime(entry['firstpublishTS'])
         iso_timestamp = '-'.join([year, month, day]) + \
             'T' + hours + ':' + minutes
 
@@ -1651,14 +1653,23 @@ class Htmlizer(object):
         if not self.dict_of_tags_with_ids or tag not in self.dict_of_tags_with_ids:
             return u'\nNo blog entries with this tag so far.\n'
 
-        # FIXXME: change from "sorted according to ID" to "sorted according to publish/update timestamp:
-        for reference in sorted(self.dict_of_tags_with_ids[tag]):
+        # generate a list of timestamps (last update) and IDs for all
+        # entries (in order to be able to sort it according to last
+        # update):
+        array_with_timestamp_and_ids = []
+        for reference in self.dict_of_tags_with_ids[tag]:
+            array_with_timestamp_and_ids.append((self.metadata[reference]['latestupdateTS'], reference))
 
-            year = self.metadata[reference]['created'].year
-            month = self.metadata[reference]['created'].month
-            day = self.metadata[reference]['created'].day
-            minutes = self.metadata[reference]['created'].minute
-            hours = self.metadata[reference]['created'].hour
+        # generate the content according to sorted list (sort by last
+        # update timestamp):
+        for entry in sorted(array_with_timestamp_and_ids):
+
+            reference = entry[1]
+            year = self.metadata[reference]['firstpublishTS'].year
+            month = self.metadata[reference]['firstpublishTS'].month
+            day = self.metadata[reference]['firstpublishTS'].day
+            minutes = self.metadata[reference]['firstpublishTS'].minute
+            hours = self.metadata[reference]['firstpublishTS'].hour
             iso_timestamp = '-'.join([str(year), str(month).zfill(2), str(day).zfill(
                 2)]) + 'T' + str(hours).zfill(2) + ':' + str(minutes).zfill(2)
 
@@ -1744,98 +1755,8 @@ class Htmlizer(object):
         if entry['category'] == config.TEMPORAL:
             # TEMPORAL: url is like "/2014/03/30/my-id/"
 
-            oldesttimestamp, year, month, day, hours, minutes = Utils.get_oldest_timestamp_for_entry(
-                entry)
+            year, month, day, hours, minutes = Utils.get_YY_MM_DD_HH_MM_from_datetime(entry['firstpublishTS'])
             return os.path.join(year, month, day, folder)
-
-    def _get_newest_timestamp_for_entry(self, entry):
-        """
-        Reads data of entry and returns datetime object of the newest
-        time-stamp of the finished-timestamp-history.
-
-        Example result: datetime(2013, 8, 29, 19, 40)
-
-        Implicit assumptions:
-        - newest: no blog article is from before 1970-01-01
-
-        @param entry: data of a blog entry
-        @param return: datetime object of its oldest time-stamp within finished-timestamp-history
-        @param return: year: four digit year as string
-        @param return: month: two digit month as string
-        @param return: day: two digit day as string
-        @param return: hours: two digit hours as string
-        @param return: minutes: two digit minutes as string
-        """
-
-        return self.__get_oldest_or_newest_timestamp_for_entry(entry, "NEWEST")
-
-    def _get_oldest_timestamp_for_entry(self, entry):
-        """
-        Reads data of entry and returns datetime object of the oldest
-        time-stamp of the finished-timestamp-history.
-
-        Example result: datetime(2013, 8, 29, 19, 40)
-
-        Implicit assumptions:
-        - no blog article is from the future (comparison to now)
-
-        @param entry: data of a blog entry
-        @param return: datetime object of its oldest time-stamp within finished-timestamp-history
-        @param return: year: four digit year as string
-        @param return: month: two digit month as string
-        @param return: day: two digit day as string
-        @param return: hours: two digit hours as string
-        @param return: minutes: two digit minutes as string
-        """
-
-        return self.__get_oldest_or_newest_timestamp_for_entry(entry, "OLDEST")
-
-    def __get_oldest_or_newest_timestamp_for_entry(self, entry, search_for):
-        """
-        Reads data of entry and returns datetime object of the oldest or newest
-        time-stamp of the finished-timestamp-history.
-
-        Example result: datetime(2013, 8, 29, 19, 40)
-
-        Implicit assumptions:
-        - oldest: no blog article is from the future (comparison to now)
-        - newest: no blog article is from before 1970-01-01
-
-        @param entry: data of a blog entry
-        @param search_for: string "OLDEST" or "NEWEST"
-        @param return: datetime object of its oldest time-stamp within finished-timestamp-history
-        @param return: year: four digit year as string
-        @param return: month: two digit month as string
-        @param return: day: two digit day as string
-        @param return: hours: two digit hours as string
-        @param return: minutes: two digit minutes as string
-        """
-
-        assert(entry)
-        assert(isinstance(entry, dict))
-        assert('finished-timestamp-history' in entry.keys())
-        assert(search_for == "OLDEST" or search_for == "NEWEST")
-
-        returntimestamp = False
-        if search_for == "OLDEST":
-            oldesttimestamp = datetime.now()
-            for timestamp in entry['finished-timestamp-history']:
-                if timestamp < oldesttimestamp:
-                    oldesttimestamp = timestamp
-            returntimestamp = oldesttimestamp
-        elif search_for == "NEWEST":
-            newesttimestamp = datetime(1970, 1, 1)
-            for timestamp in entry['finished-timestamp-history']:
-                if timestamp > newesttimestamp:
-                    newesttimestamp = timestamp
-            returntimestamp = newesttimestamp
-
-        return returntimestamp, str(
-            returntimestamp.year).zfill(2), str(
-            returntimestamp.month).zfill(2), str(
-            returntimestamp.day).zfill(2), str(
-                returntimestamp.hour).zfill(2), str(
-                    returntimestamp.minute).zfill(2)
 
     def _create_target_path_for_id_with_targetdir(self, entryid):
         """
@@ -1900,10 +1821,7 @@ class Htmlizer(object):
         @param return: blog_data element
         """
 
-#        try:
         matching_elements = [x for x in self.blog_data if entryid == x['id']]
-#        except TypeError:
-#            import pdb; pdb.set_trace()
 
         if len(matching_elements) == 1:
             return matching_elements[0]
