@@ -1,4 +1,4 @@
-## Time-stamp: <2017-02-12 13:00:17 vk>
+## Time-stamp: <2017-03-03 15:51:48 vk>
 ## -*- coding: utf-8; mode: org; -*-
 ## This file is best viewed with GNU Emacs Org-mode: http://orgmode.org/
 
@@ -79,8 +79,9 @@ Have fun with modifying lazyblorg to your requirements!
      <ul>
      <li><a href="#BASE-URL#">Recent articles</a></li>
      <li>[[id:#ABOUT-PAGE-ID#][About this blog]]</li>
-     <li><a href="#BASE-URL#/feeds/lazyblorg-all.atom_1.0.links-only.xml">Follow/subscribe links</a></li>
-     <li><a href="#BASE-URL#/feeds/lazyblorg-all.atom_1.0.links-and-content.xml">Follow/subscribe content</a></li>
+     <li>[[id:2017-01-03-how-to-use-public-voit][How to use this blog efficiently]]</li>
+     <li><img src="#BASE-URL#/images/feed-icon-14x14.png" />&nbsp;<a href="#BASE-URL#/feeds/lazyblorg-all.atom_1.0.links-only.xml">Follow/subscribe links</a></li>
+     <li><img src="#BASE-URL#/images/feed-icon-14x14.png" />&nbsp;<a href="#BASE-URL#/feeds/lazyblorg-all.atom_1.0.links-and-content.xml">Follow/subscribe content</a></li>
      <li><span style="font-size:small"><a href="https://en.wiktionary.org/wiki/TBD">TBD</a>: Per Tag Feeds</span></li>
      <li><span style="font-size:small"><a href="https://en.wiktionary.org/wiki/TBD">TBD</a>: Archive</span></li>
      <li>Top <a href="#BASE-URL#/tags/">tags</a>:</li>
@@ -277,6 +278,11 @@ With name/label:
   <link rel="stylesheet" title="#BLOG-NAME# Standard CSS Style"
         href="#CSS-URL#" type="text/css" media="screen"  />
 
+  <link rel="alternate" type="application/atom+xml" 
+        title="#BLOG-NAME# (links only)" href="#FEEDURL_LINKS#" />
+  <link rel="alternate" type="application/atom+xml" 
+        title="#BLOG-NAME# (links and content)" href="#FEEDURL_CONTENT#" />
+
   <!-- WARNING: This page is written in HTML5 and might not be displayed correctly in old browsers. -->
 
   <title>#BLOG-NAME# - Homepage of #AUTHOR-NAME#</title>
@@ -306,7 +312,6 @@ With name/label:
   <!--<p>
 
     On this page you can see the latest blog updates. For further articles, please use the <b>search bar</b> or <b>navigate through <a href="tags/">the blue tags</a></b>.
-    My recommendations are <a href="tags/pim/">pim</a>, <a href="tags/privacy/">privacy</a>, or <a href="tags/security/">security</a>.
 
   </p>
 
@@ -444,6 +449,11 @@ placeholder article which is defined in this file (below).
   <link rel="stylesheet" title="#BLOG-NAME# Standard CSS Style"
         href="#CSS-URL#" type="text/css" media="screen"  />
 
+  <link rel="alternate" type="application/atom+xml" 
+        title="#BLOG-NAME# (links only)" href="#FEEDURL_LINKS#" />
+  <link rel="alternate" type="application/atom+xml" 
+        title="#BLOG-NAME# (links and content)" href="#FEEDURL_CONTENT#" />
+
   <!-- WARNING: This page is written in HTML5 and might not be displayed correctly in old browsers. -->
 
       <title>#ARTICLE-TITLE#</title>
@@ -580,6 +590,11 @@ placeholder article which is defined in this file (below).
 
   <link rel="stylesheet" title="#BLOG-NAME# Standard CSS Style"
         href="#CSS-URL#" type="text/css" media="screen"  />
+
+  <link rel="alternate" type="application/atom+xml" 
+        title="#BLOG-NAME# (links only)" href="#FEEDURL_LINKS#" />
+  <link rel="alternate" type="application/atom+xml" 
+        title="#BLOG-NAME# (links and content)" href="#FEEDURL_CONTENT#" />
 
   <!-- WARNING: This page is written in HTML5 and might not be displayed correctly in old browsers. -->
 
@@ -754,6 +769,11 @@ A single page which is used as template for =example.com/tags/index.html=.
   <link rel="stylesheet" title="#BLOG-NAME# Standard CSS Style"
         href="#CSS-URL#" type="text/css" media="screen"  />
 
+  <link rel="alternate" type="application/atom+xml" 
+        title="#BLOG-NAME# (links only)" href="#FEEDURL_LINKS#" />
+  <link rel="alternate" type="application/atom+xml" 
+        title="#BLOG-NAME# (links and content)" href="#FEEDURL_CONTENT#" />
+
   <!-- WARNING: This page is written in HTML5 and might not be displayed correctly in old browsers. -->
 
       <title>Tags of #BLOG-NAME#</title>
@@ -860,6 +880,11 @@ Pages that describe a tag. Corresponding Org-mode entries must have:
 
   <link rel="stylesheet" title="#BLOG-NAME# Standard CSS Style"
         href="#CSS-URL#" type="text/css" media="screen"  />
+
+  <link rel="alternate" type="application/atom+xml" 
+        title="#BLOG-NAME# (links only)" href="#FEEDURL_LINKS#" />
+  <link rel="alternate" type="application/atom+xml" 
+        title="#BLOG-NAME# (links and content)" href="#FEEDURL_CONTENT#" />
 
   <!-- WARNING: This page is written in HTML5 and might not be displayed correctly in old browsers. -->
 
@@ -985,6 +1010,11 @@ FIXXME
   <meta name="generator" content="lazyblorg" />
   <link rel="stylesheet" title="#BLOG-NAME# Standard CSS Style"
         href="#CSS-URL#" type="text/css" media="screen"  />
+
+  <link rel="alternate" type="application/atom+xml" 
+        title="#BLOG-NAME# (links only)" href="#FEEDURL_LINKS#" />
+  <link rel="alternate" type="application/atom+xml" 
+        title="#BLOG-NAME# (links and content)" href="#FEEDURL_CONTENT#" />
 
   <!-- WARNING: This page is written in HTML5 and might not be displayed correctly in old browsers. -->
 

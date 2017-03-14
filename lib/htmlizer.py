@@ -1,5 +1,5 @@
 # -*- coding: utf-8; mode: python; -*-
-# Time-stamp: <2017-02-12 15:53:29 vk>
+# Time-stamp: <2017-03-03 16:07:09 vk>
 
 import config  # lazyblorg-global settings
 import sys
@@ -290,6 +290,61 @@ class Htmlizer(object):
         return entry_list_by_newest_timestamp, stats_generated_total, stats_generated_temporal, \
             stats_generated_persistent, stats_generated_tags
 
+    def _generate_tag_page(self, entry):
+        """
+        Creates a blog article for a tag (in contrast to a temporal or persistent blog article).
+
+        @param entry: blog entry data
+        @param return: htmlfilename: string containing the file name of the HTML file
+        @param return: orgfilename: string containing the file name of the Org-mode raw content file
+        @param return: htmlcontent: the HTML content of the entry
+        """
+
+        logging.debug('_generate_tag_page(' + str(entry) + ')')
+        tag = entry['title']
+        self.list_of_tag_pages_generated.append(tag)
+
+        path = self._create_target_path_for_id_with_targetdir(entry['id'])
+        htmlfilename = os.path.join(path, "index.html")
+        orgfilename = os.path.join(path, "source.org.txt")
+        htmlcontent = u''
+
+        content = u''
+        for articlepart in [
+            'tagpage-header',
+            'tagpage-header-begin',
+                'tagpage-tags-begin']:
+            content += self.template_definition_by_name(articlepart)
+        htmlcontent += self._replace_general_article_placeholders(
+            entry, content)
+
+        # handle autotags:
+        content = u''
+        if 'autotags' in entry.keys():
+            for autotag in entry['autotags'].keys():
+                content += self._replace_tag_placeholders([autotag + ":" + entry['autotags'][autotag]],
+                                                          self.template_definition_by_name('article-autotag'))
+        htmlcontent += self._replace_general_article_placeholders(
+            entry, content)
+
+        content = u''
+        for articlepart in ['tagpage-tags-end', 'tagpage-header-end']:
+            content += self.template_definition_by_name(articlepart)
+        htmlcontent += self._replace_general_article_placeholders(
+            entry, content)
+
+        htmlcontent += self.__collect_raw_content(entry['content'])
+
+        content = u''
+        for articlepart in ['tagpage-end', 'article-footer']:
+            content += self.template_definition_by_name(articlepart)
+
+        htmlcontent += self._replace_general_article_placeholders(
+            entry, content)
+        htmlcontent = self.sanitize_internal_links(
+            config.TEMPORAL, htmlcontent)
+
+        return htmlfilename, orgfilename, htmlcontent
 
     def _generate_tag_pages_which_got_no_userdefined_tag_page(self):
         """
@@ -363,7 +418,21 @@ class Htmlizer(object):
 
         self.__generate_feeds_for_everything(entry_list_by_newest_timestamp)
 
-    def __generate_feed_filename(self, feedstring):
+    def __generate_feed_file_path(self, feedstring):
+        """
+        Generator function for RSS/ATOM feed files.
+
+        @param feedstring: part of the feed file which describes the feed itself
+        @param return: ATOM feed file path and names
+        """
+
+        filenames = self.__generate_feed_file_names(feedstring)
+
+        return \
+            os.path.join(self.targetdir, config.FEEDDIR, filenames[0]), \
+            os.path.join(self.targetdir, config.FEEDDIR, filenames[1])
+
+    def __generate_feed_file_names(self, feedstring):
         """
         Generator function for RSS/ATOM feed files.
 
@@ -372,8 +441,8 @@ class Htmlizer(object):
         """
 
         return \
-            os.path.join(self.targetdir, config.FEEDDIR, "lazyblorg-" + feedstring + self.LINKS_ONLY_FEED_POSTFIX), \
-            os.path.join(self.targetdir, config.FEEDDIR, "lazyblorg-" + feedstring + self.LINKS_AND_CONTENT_FEED_POSTFIX)
+            os.path.join("lazyblorg-" + feedstring + self.LINKS_ONLY_FEED_POSTFIX), \
+            os.path.join("lazyblorg-" + feedstring + self.LINKS_AND_CONTENT_FEED_POSTFIX)
 
     def __generate_new_feed(self):
         """
@@ -410,7 +479,7 @@ class Htmlizer(object):
         @param return: none
         """
 
-        atom_targetfile_links, atom_targetfile_content = self.__generate_feed_filename("all")
+        atom_targetfile_links, atom_targetfile_content = self.__generate_feed_file_path("all")
         links_atom_feed = self.__generate_new_feed().replace('#LINKPOSTFIX#', self.LINKS_ONLY_FEED_POSTFIX)
         content_atom_feed = self.__generate_new_feed().replace('#LINKPOSTFIX#', self.LINKS_AND_CONTENT_FEED_POSTFIX)
 
@@ -1414,62 +1483,6 @@ class Htmlizer(object):
 
         return htmlfilename, orgfilename, htmlcontent
 
-    def _generate_tag_page(self, entry):
-        """
-        Creates a blog article for a tag (in contrast to a temporal or persistent blog article).
-
-        @param entry: blog entry data
-        @param return: htmlfilename: string containing the file name of the HTML file
-        @param return: orgfilename: string containing the file name of the Org-mode raw content file
-        @param return: htmlcontent: the HTML content of the entry
-        """
-
-        logging.debug('_generate_tag_page(' + str(entry) + ')')
-        tag = entry['title']
-        self.list_of_tag_pages_generated.append(tag)
-
-        path = self._create_target_path_for_id_with_targetdir(entry['id'])
-        htmlfilename = os.path.join(path, "index.html")
-        orgfilename = os.path.join(path, "source.org.txt")
-        htmlcontent = u''
-
-        content = u''
-        for articlepart in [
-            'tagpage-header',
-            'tagpage-header-begin',
-                'tagpage-tags-begin']:
-            content += self.template_definition_by_name(articlepart)
-        htmlcontent += self._replace_general_article_placeholders(
-            entry, content)
-
-        # handle autotags:
-        content = u''
-        if 'autotags' in entry.keys():
-            for autotag in entry['autotags'].keys():
-                content += self._replace_tag_placeholders([autotag + ":" + entry['autotags'][autotag]],
-                                                          self.template_definition_by_name('article-autotag'))
-        htmlcontent += self._replace_general_article_placeholders(
-            entry, content)
-
-        content = u''
-        for articlepart in ['tagpage-tags-end', 'tagpage-header-end']:
-            content += self.template_definition_by_name(articlepart)
-        htmlcontent += self._replace_general_article_placeholders(
-            entry, content)
-
-        htmlcontent += self.__collect_raw_content(entry['content'])
-
-        content = u''
-        for articlepart in ['tagpage-end', 'article-footer']:
-            content += self.template_definition_by_name(articlepart)
-
-        htmlcontent += self._replace_general_article_placeholders(
-            entry, content)
-        htmlcontent = self.sanitize_internal_links(
-            config.TEMPORAL, htmlcontent)
-
-        return htmlfilename, orgfilename, htmlcontent
-
     def __collect_raw_content(self, contentarray):
         """
         Iterates over the contentarray and returns a concatenated string in unicode.
@@ -1553,6 +1566,8 @@ class Htmlizer(object):
         content = content.replace('#COMMENT-EMAIL-ADDRESS#', config.COMMENT_EMAIL_ADDRESS)
         content = content.replace('#TWITTER-HANDLE#', config.TWITTER_HANDLE)
         content = content.replace('#TWITTER-IMAGE#', config.TWITTER_IMAGE)
+        content = content.replace('#FEEDURL_LINKS#', config.BASE_URL + '/' + config.FEEDDIR + '/' + self.__generate_feed_file_names("all")[0])
+        content = content.replace('#FEEDURL_CONTENT#', config.BASE_URL + '/' + config.FEEDDIR + '/' + self.__generate_feed_file_names("all")[1])
         return content
 
     def _replace_general_article_placeholders(self, entry, template):
