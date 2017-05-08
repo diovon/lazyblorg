@@ -1,5 +1,5 @@
 # -*- coding: utf-8; mode: python; -*-
-# Time-stamp: <2017-03-03 16:07:09 vk>
+# Time-stamp: <2017-04-23 15:02:41 vk>
 
 import config  # lazyblorg-global settings
 import sys
@@ -103,6 +103,7 @@ class Htmlizer(object):
     ID_PREFIX_FOR_EMPTY_TAG_PAGES = 'lb_tag-'
 
     LINKS_ONLY_FEED_POSTFIX = ".atom_1.0.links-only.xml"
+    LINKS_AND_TEASER_FEED_POSTFIX = ".atom_1.0.links-and-teaser.xml"
     LINKS_AND_CONTENT_FEED_POSTFIX = ".atom_1.0.links-and-content.xml"
 
 
@@ -430,7 +431,8 @@ class Htmlizer(object):
 
         return \
             os.path.join(self.targetdir, config.FEEDDIR, filenames[0]), \
-            os.path.join(self.targetdir, config.FEEDDIR, filenames[1])
+            os.path.join(self.targetdir, config.FEEDDIR, filenames[1]), \
+            os.path.join(self.targetdir, config.FEEDDIR, filenames[2])
 
     def __generate_feed_file_names(self, feedstring):
         """
@@ -442,6 +444,7 @@ class Htmlizer(object):
 
         return \
             os.path.join("lazyblorg-" + feedstring + self.LINKS_ONLY_FEED_POSTFIX), \
+            os.path.join("lazyblorg-" + feedstring + self.LINKS_AND_TEASER_FEED_POSTFIX), \
             os.path.join("lazyblorg-" + feedstring + self.LINKS_AND_CONTENT_FEED_POSTFIX)
 
     def __generate_new_feed(self):
@@ -466,9 +469,7 @@ class Htmlizer(object):
   </author>
   <subtitle type="text">""" + config.BLOG_NAME + """</subtitle>
   <rights>All content written by """ + config.AUTHOR_NAME + """</rights>
-  <generator uri='https://github.com/novoid/lazyblorg'>Generated from Org-mode source code using lazyblorg which is written in Python. Industrial-strength technology, baby.</generator>
-
-        """
+  <generator uri='https://github.com/novoid/lazyblorg'>Generated from Org-mode source code using lazyblorg which is written in Python. Industrial-strength technology, baby.</generator>"""
 
         return feed.replace('>' + config.BASE_URL, '>http:' + config.BASE_URL).replace('\'' + config.BASE_URL, '\'http:' + config.BASE_URL).replace('\"' + config.BASE_URL, '\"http:' + config.BASE_URL)
 
@@ -479,8 +480,9 @@ class Htmlizer(object):
         @param return: none
         """
 
-        atom_targetfile_links, atom_targetfile_content = self.__generate_feed_file_path("all")
+        atom_targetfile_links, atom_targetfile_teaser, atom_targetfile_content = self.__generate_feed_file_path("all")
         links_atom_feed = self.__generate_new_feed().replace('#LINKPOSTFIX#', self.LINKS_ONLY_FEED_POSTFIX)
+        teaser_atom_feed = self.__generate_new_feed().replace('#LINKPOSTFIX#', self.LINKS_AND_TEASER_FEED_POSTFIX)
         content_atom_feed = self.__generate_new_feed().replace('#LINKPOSTFIX#', self.LINKS_AND_CONTENT_FEED_POSTFIX)
 
         number_of_current_feed_entries = 0
@@ -517,59 +519,68 @@ class Htmlizer(object):
                 continue
 
             # filling feed entry string:
-            feedentry = u"""<entry>
-    <title type="text">""" + blog_data_entry['title'] + """</title>
+            feedentry = u"""\n<!-- ############################################################################################# -->\n<entry>
+    <title type="text">""" + self.sanitize_feed_html_characters(blog_data_entry['title']) + """</title>
     <link href='""" + config.BASE_URL + "/" + listentry['url'] + """' />
     <published>""" + blog_data_entry['firstpublishTS'].strftime('%Y-%m-%dT%H:%M:%S' + config.TIME_ZONE_ADDON) + """</published>
-    <updated>""" + blog_data_entry['latestupdateTS'].strftime('%Y-%m-%dT%H:%M:%S' + config.TIME_ZONE_ADDON) + "</updated>\n"
+    <updated>""" + blog_data_entry['latestupdateTS'].strftime('%Y-%m-%dT%H:%M:%S' + config.TIME_ZONE_ADDON) + "</updated>"
 
             # adding all tags:
             for tag in blog_data_entry['usertags']:
 
-                feedentry += "    <category scheme='" + config.BASE_URL + \
-                    "/" + "tags" + "/" + tag + "' term='" + tag + "' />\n"
+                feedentry += "\n    <category scheme='" + config.BASE_URL + \
+                    "/" + "tags" + "/" + tag + "' term='" + tag + "' />"
             # handle autotags:
             if 'autotags' in blog_data_entry.keys():
                 for autotag in blog_data_entry['autotags'].keys():
                     tag = autotag + ":" + blog_data_entry['autotags'][autotag]
-                    feedentry += "    <category scheme='" + config.BASE_URL + "/" + \
-                        "autotags" + "/" + autotag + "' term='" + tag + "' />\n"
+                    feedentry += "\n    <category scheme='" + config.BASE_URL + "/" + \
+                        "autotags" + "/" + autotag + "' term='" + tag + "' />"
 
-            # add summary:
-            feedentry += "    <summary type='xhtml'>\n<div xmlns='http://www.w3.org/1999/xhtml'>"
+            # write feedentry to links_atom_feed before any summary is added:
+            links_atom_feed += feedentry + "\n    <id>" + config.BASE_URL + "/" + \
+                listentry['url'] + u"-from-feed-with-links" + "</id>\n</entry>"
+
+            # add article summary to feedentry:
+            feedentry += "\n    <summary type='xhtml'>\n<div xmlns='http://www.w3.org/1999/xhtml'>"
             if blog_data_entry['htmlteaser-equals-content']:
-                feedentry += '\n'.join(blog_data_entry['content'])
+                feedentry += self.sanitize_feed_html_characters('\n'.join(blog_data_entry['content']))
             else:
-                feedentry += '\n'.join(blog_data_entry['htmlteaser'])
+                feedentry += self.sanitize_feed_html_characters('\n'.join(blog_data_entry['htmlteaser']))
             feedentry += "</div>\n    </summary>"
 
             # add content to content-feed OR end entry for links-feed:
-            links_atom_feed += feedentry + "\n    <id>" + config.BASE_URL + "/" + \
-                listentry['url'] + u"-from-feed-with-links" + "</id>\n  </entry>\n\n"
+            teaser_atom_feed += feedentry + "\n    <id>" + config.BASE_URL + "/" + \
+                listentry['url'] + u"-from-feed-with-teaser" + "</id>\n</entry>"
             content_atom_feed += feedentry + """    <content type='xhtml'>
       <div xmlns='http://www.w3.org/1999/xhtml'>
-	""" + '\n'.join(blog_data_entry['content']) + """
+	""" + self.sanitize_feed_html_characters('\n'.join(blog_data_entry['content'])) + """
       </div>
     </content>
     <id>""" + config.BASE_URL + "/" + listentry['url'] + u"-from-feed-with-content" + \
-                "</id>\n  </entry>\n"
+                "</id>\n</entry>"
 
             # replace "\\example.com" with "http:\\example.com" to calm down feed verifiers/aggregators:
             links_atom_feed = links_atom_feed.replace('>' + config.BASE_URL, '>http:' + config.BASE_URL)
             links_atom_feed = links_atom_feed.replace('\'' + config.BASE_URL, '\'http:' + config.BASE_URL)
+            teaser_atom_feed = teaser_atom_feed.replace('>' + config.BASE_URL, '>http:' + config.BASE_URL)
+            teaser_atom_feed = teaser_atom_feed.replace('\'' + config.BASE_URL, '\'http:' + config.BASE_URL)
             content_atom_feed = content_atom_feed.replace('>' + config.BASE_URL, '>http:' + config.BASE_URL)
             content_atom_feed = content_atom_feed.replace('\'' + config.BASE_URL, '\'http:' + config.BASE_URL)
 
             number_of_current_feed_entries += 1
 
         links_atom_feed += "</feed>"
+        teaser_atom_feed += "</feed>"
         content_atom_feed += "</feed>"
 
         assert(isinstance(links_atom_feed, unicode))
+        assert(isinstance(teaser_atom_feed, unicode))
         assert(isinstance(content_atom_feed, unicode))
 
         # Save the feed to a file in various formats
         self.write_content_to_file(atom_targetfile_links, links_atom_feed)
+        self.write_content_to_file(atom_targetfile_teaser, teaser_atom_feed)
         self.write_content_to_file(atom_targetfile_content, content_atom_feed)
 
         return
@@ -1247,6 +1258,13 @@ class Htmlizer(object):
         """
         Replaces all occurrences of [<>] with their HTML representation.
 
+        Numeric values: http://www.ascii.cl/htmlcodes.htm
+
+        FIXXME: build an exhaustive list of replacement characters
+
+        FIXXME: use a more elegant replacement construct such as http://stackoverflow.com/questions/5499078/fastest-method-to-escape-html-tags-as-html-entities
+        or https://wiki.python.org/moin/EscapingHtml
+
         @param entry: string
         @param return: sanitized string
         """
@@ -1257,7 +1275,33 @@ class Htmlizer(object):
             u'<',
             u'&lt;').replace(
             u'>',
-            u'&gt;')
+            u'&gt;').replace(
+            u'—',
+            u'&mdash;')
+
+    def sanitize_feed_html_characters(self, content):
+        """
+        Replaces all occurrences of [<>] with their HTML representation for the atom feeds.
+
+        According to http://stackoverflow.com/questions/281682/reference-to-undeclared-entity-exception-while-working-with-xml
+        HTML-entities like &mdash; must not be part of XML.
+
+        Numeric values: http://www.ascii.cl/htmlcodes.htm
+
+        FIXXME: build an exhaustive list of replacement characters
+
+        FIXXME: use a more elegant replacement construct such as http://stackoverflow.com/questions/5499078/fastest-method-to-escape-html-tags-as-html-entities
+        or https://wiki.python.org/moin/EscapingHtml
+
+        @param entry: string
+        @param return: sanitized string
+        """
+
+        return content.replace(
+            u'<script async src=',
+            u'<script async="async" src=').replace(
+            u'&mdash;',
+            u'&#8212;')
 
     def generate_relative_url_from_sourcecategory_to_id(
             self, sourcecategory, targetid):
@@ -1567,7 +1611,8 @@ class Htmlizer(object):
         content = content.replace('#TWITTER-HANDLE#', config.TWITTER_HANDLE)
         content = content.replace('#TWITTER-IMAGE#', config.TWITTER_IMAGE)
         content = content.replace('#FEEDURL_LINKS#', config.BASE_URL + '/' + config.FEEDDIR + '/' + self.__generate_feed_file_names("all")[0])
-        content = content.replace('#FEEDURL_CONTENT#', config.BASE_URL + '/' + config.FEEDDIR + '/' + self.__generate_feed_file_names("all")[1])
+        content = content.replace('#FEEDURL_TEASER#', config.BASE_URL + '/' + config.FEEDDIR + '/' + self.__generate_feed_file_names("all")[1])
+        content = content.replace('#FEEDURL_CONTENT#', config.BASE_URL + '/' + config.FEEDDIR + '/' + self.__generate_feed_file_names("all")[2])
         return content
 
     def _replace_general_article_placeholders(self, entry, template):

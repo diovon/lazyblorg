@@ -1,5 +1,5 @@
 # -*- mode: org; coding: utf-8; -*-
-# Time-stamp: <2017-02-12 16:35:57 vk>
+# Time-stamp: <2017-04-23 16:40:26 vk>
 
 * header information                                               :noexport:
 :PROPERTIES:
@@ -363,6 +363,22 @@ for tag, count in TAGS.items():
 : <a href="tag-cloud" class="size-0">tag-cloud</a>
 
 That's all. No need for a library ;-)
+
+** NEXT Blog entries can not start with a list                                                  :bug:
+:PROPERTIES:
+:CREATED:  [2017-04-23 Sun 12:49]
+:END:
+
+- https://github.com/novoid/lazyblorg/issues/10
+
+** NEXT lb-manual on public voit or GitHub Wiki
+:PROPERTIES:
+:CREATED:  [2017-04-11 Tue 08:12]
+:END:
+
+- id:lazyblorg-docu id:lazyblorg-docu-blocks
+  id:lazyblorg-docu-how-to-use and so on ...
+
 ** NEXT generate tagtrees of level 2 (and more)
 :PROPERTIES:
 :CREATED:  [2017-02-12 Sun 10:55]
@@ -638,14 +654,6 @@ CLOSED: [2015-06-27 Sat 19:06] SCHEDULED: <2015-06-27 Sat>
   - «Research varies, but generally, the average adult reads 200-250 words in one minute.»
   - arguments *against* using this feature (makes people angry)
 
-** NEXT write lazyblorg-manual
-:PROPERTIES:
-:CREATED:  [2016-05-08 Sun 12:31]
-:END:
-
-- location: lazyblorg.org
-- publish on publicvoit
-
 ** NEXT remove list-itemize (and mytable?) from code and docu
 :PROPERTIES:
 :CREATED:  [2016-02-13 Sat 11:33]
@@ -906,7 +914,7 @@ on https://karl-voit.at/2014/03/25/xdu
 :END:
 
 ** NEXT create pull-request on https://github.com/hober/planet.emacsen.org/ for my emacs/english feed
-SCHEDULED: <2016-11-22 Tue>
+SCHEDULED: <2017-03-08 Wed>
 :PROPERTIES:
 :BLOCKER: 2016-05-22-tag-feeds
 :CREATED: [2015-11-13 Fri 07:20]
