@@ -1,5 +1,5 @@
 # -*- coding: utf-8; mode: python; -*-
-# Time-stamp: <2017-07-11 10:03:08 vk>
+# Time-stamp: <2017-07-11 10:03:35 vk>
 
 import config  # lazyblorg-global settings
 import sys
