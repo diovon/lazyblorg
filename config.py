@@ -1,5 +1,5 @@
 # -*- coding: utf-8; mode: python; -*-
-# Time-stamp: <2017-06-25 12:12:01 vk>
+# Time-stamp: <2017-07-11 10:00:07 vk>
 import os
 
 ## ===================================================================== ##
@@ -73,7 +73,7 @@ TIME_ZONE_ADDON = u'+01:00'
 ##   or one of its sub-folders.
 ## EMPTY string if including images is disabled
 ## Please do read the documentation: https://github.com/novoid/lazyblorg/wiki/Orgmode-Elements#images
-CUSTOMIZED_IMAGE_LINK_KEY = 'tsfile'  # short for "time-stamp filename"
+CUSTOMIZED_IMAGE_LINK_KEY = "" # 'tsfile'  # short for "time-stamp filename"
 
 ## string: path to the Memacs index for filenametimestamps
 ## Note that the method below is the safe one that works on Windows
@@ -81,15 +81,15 @@ CUSTOMIZED_IMAGE_LINK_KEY = 'tsfile'  # short for "time-stamp filename"
 ## like "/home/user/dir1/memacs_files.org_archive" as string.
 ## EMPTY string if including images via Memacs index is disabled
 ## Please do read the documentation: https://github.com/novoid/lazyblorg/wiki/Orgmode-Elements#images
-MEMACS_FILE_WITH_IMAGE_FILE_INDEX = os.path.join(os.path.expanduser("~"), "org", "memacs", "files.org_archive")
+MEMACS_FILE_WITH_IMAGE_FILE_INDEX = "" #os.path.join(os.path.expanduser("~"), "org", "memacs", "files.org_archive")
 
 ## string: path to a directory that holds image files (+ sub-directories)
 ## EMPTY string if including images via traversing the file system is disabled
 ## Please do read the documentation: https://github.com/novoid/lazyblorg/wiki/Orgmode-Elements#images
-DIRECTORIES_WITH_IMAGE_ORIGINALS = ["testdata/testimages",
-                                    os.path.join(os.path.expanduser("~"), "tmp/digicam/tmp"),
-                                    os.path.join(os.path.expanduser("~"), "archive/events_memories/2017"),
-                                    os.path.join(os.path.expanduser("~"), "archive/fromweb/cliparts")]
+DIRECTORIES_WITH_IMAGE_ORIGINALS = [] #["testdata/testimages",
+#                                    os.path.join(os.path.expanduser("~"), "Bilder/Background/"),
+#                                    os.path.join(os.path.expanduser("~"), "archive/events_memories/2017"),
+#                                    os.path.join(os.path.expanduser("~"), "archive/fromweb/cliparts")]
 
 ## ===================================================================== ##
 ##                                                                       ##
