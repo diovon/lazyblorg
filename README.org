@@ -172,6 +172,7 @@ are becoming close friends right now:
       needed for my blog, I start thinking of implementing it
     - I am using Pandoc as a fall-back for all other Org-mode syntax
       elements which works pretty fine
+    - For a list of general Org-mode parsers please [[http://orgmode.org/worg/org-tools/][read this page]]
 
 - lazyblorg is using state-of-the art HTML5 and CSS3
   - No old HTML4.01 transitional stuff or similar
@@ -226,11 +227,16 @@ efficiently:
 
 - Really fast to use [[https://github.com/novoid/lazyblorg/wiki/Links#linking-other-blog-articles-internal-links][linking to other blog articles]] using their ID property.
 
+- At the bottom of each article, there is a list of related articles
+  that back-link to here.
+
 - You can very easily [[https://github.com/novoid/lazyblorg/wiki/Images][embed image files]] with automatically scaling to
   their desired width
   - This feature is hardened against image file renaming and broken
     links because of moving images files to different folders
   - Users of [[https://github.com/novoid/Memacs][Memacs]] do have advanced possibilities here as well
+  - An optional image cache directory holds previously resized image
+    file and therefore prevents resizing effort for each run.
 
 - For navigating through the blog articles I do recommend using the
   [[https://github.com/novoid/lazyblorg/wiki/Tag-Pages][tags]]. Articles related to one topic share common tags whereas a
