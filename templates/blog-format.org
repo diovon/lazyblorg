@@ -357,6 +357,16 @@ With name/label:
   </p>-->
 
   <p>
+	  <aside class="tag-cloud">
+	    <ul>
+
+#TAGOVERVIEW-CLOUD#
+
+            </ul>
+          </aside>
+  </p>
+
+  <p>
 
     Most recent articles or updates:
 
