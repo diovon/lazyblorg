@@ -1,0 +1,76 @@
+  CLOSED: [2016-09-26 Mo 18:55]
+:LOGBOOK:
+- State "DONE"       from ""           [2016-09-26 Mo 18:55]
+:END:
+:PROPERTIES:
+:CREATED: [2016-09-26 Mo 18:55]
+:ID: 2016-09-26-bikelight
+:END:
+
+Da ich wie mein Bruder ein leidenschaftlicher Arbeitsradler bin, versuch ich stets die Fahrten für mein Bike und mich angenehmer zu gestalten.
+Jetzt im Herbst ist es meistens schon dunkel wenn ich vom Büro heimfahre, daher hab ich mich rechtzeitig auf die Suche gemacht, wie ich meine
+Lichtanlage verbessern kann. Des Weiteren suchte ich schon seit längerem nach einer Möglichkeit, wie ich meine Abbiegervorgänge sichtbarer
+bekanntgeben kann. Ein weiterer Grund ist, des öfteren gerade im Kreuzungsbereich sehr viele Unebenheiten oder Schlaglöcher auftreten, wodurch
+ich aus Sicherheitsgründen lieber beide Hände am Lenke lassen muss, anstatt ein Handzeichen zu geben.
+
+** Das Produkt
+
+Aus Erfahrung weiß ich, dass man in heimischen Geschäften derartige nicht finden kann, daher habe ich eine Recherche bei meinem lieblings
+China [[https://www.banggood.com/?p%3DOK2705550242201404T0][Onlineshop]] unternommen. Ein [[http://www.banggood.com/Wholesale-Cycling-Bicycle-Bike-5-Led-Laser-Light-Beam-Rear-Tail-LED-Light-Lamp-p-40111.html?p%3DOK2705550242201404T0][Rücklicht]] hatte ich mir bereits vor einem Jahr zugelegt, aber ich wollte mehr ;-)
+Uns so bin ich auf ein [[http://www.banggood.com/64-LED-Wireless-Remote-Laser-Bicycle-Rear-Tail-Light-Bike-Turn-Signals-Safety-Warning-Light-p-1056503.html?p%3DOK2705550242201404T0][kombiniertes Rücklicht mit Abbiegeanzeigefunktion]] gestoßen. Dabei handelt es sich um zwei Komponenten:
+-) ein Funksendemodul zum Bedienen des Rücklichtes und der Abbiegeanzeige
+-) ein Empfangsmodul, dass als Rücklicht dient
+
+Vor ein paar Tagen ist die Lieferung bei mir eingetroffen und ich konnte sofort den Praxistest durchführen.
+
+** Der Test
+Was mich auch zum Kauf bewogen hat war, dass ich für die Montage keine lästige Kabel an meinem Rad befestigen muss. Das Rücklicht ist sehr schnell
+mit Hilfe eines Kreuzschrabenziehers montiert.
+
+#+CAPTION: Rücklicht
+#+ATTR_HTML: :alt Rücklicht
+#+ATTR_HTML: :align center :width 560
+[[tsfile:2016-09-23T08.23.23_img_20160923_082323.jpg]]
+
+Zusätzlich zum Rücklicht stehen zwei Laser zur Verfügung, um eine Art Fahrspur zu symbolisieren. Diese Funktion hatte auch schon mein
+vorheriges Rücklicht und ich finde es sehr praktisch. Laut meiner subjektiven Wahrnehmung hatte ich auch das Gefühl, dass Autofahrer,
+durch die Projektion der beiden roten Streifen, einen größeren Seitenabstand zu mir einnahmen.
+
+#+CAPTION: Zusätzliches Laser Licht
+#+ATTR_HTML: :alt Zusätzliches Laser Licht
+#+ATTR_HTML: :align center :width 560
+[[tsfile:2016-09-22T20.01.20_img_20160922_200120.jpg]]
+
+Ein bisschen Kopfzerbrechen machte mich, ob ich noch einen geeigneten Platz für das Sendemodul auf meinem Lenker finden kann, da das Ebike mit
+seine eigenen Elektronik recht viel Platz wegnimmt. Aber ich hatte Glück und fand eine relativ gute Position, sodass ich, ohne die Hand vom
+Lenker nehmen zu müssen, das Sendemodul bedienen kann.
+
+#+CAPTION: Sendemodul
+#+ATTR_HTML: :alt Sendemodul
+#+ATTR_HTML: :align center :width 560
+[[tsfile:2016-09-23T08.23.09_img_20160923_082308.jpg]]
+
+Nun musste ich nur noch warten bis es dunkel wurde. Vor der Abfahrt machte ich noch einen kleinen Funktionstest.
+
+#+CAPTION: Rücklichtbeleuchtung
+#+ATTR_HTML: :alt Rücklichtbeleuchtung
+#+ATTR_HTML: :width 560
+[[tsfile:2016-09-22T20.00.51_img_20160922_200051.jpg]]
+
+#+CAPTION: Rücklichtbeleuchtung
+#+ATTR_HTML: :alt Rücklichtbeleuchtung
+#+ATTR_HTML: :width 560
+[[tsfile:2016-09-22T20.01.32_img_20160922_200131.jpg]]
+
+Die Bedienung des Sendemoduls ist wie erwartet sehr einfach. Zum Aktivieren der Laser-Lichter und des Rücklichtes stehen zwei Schalter zur
+Verfügung. Zum Betätigen des Abbiegers muss der Kippschalter hinauf oder hinunter bewegt werden. Zustätzlich wird der aktive Abbieger auf
+dem Sendemodul angezeigt.
+
+** Fazit
+
+Das Rücklicht ist sehr hell und gut sichtbar. Was mich etwas stört ist, dass das Rücklicht zwischen unterschiedlichen Animationen wechselt.
+Bei der Funktion der Abbiegeanzeige bin ich mir nicht ganz sicher, ob andere Verkehrsteilnehmer die angezeigten Symbole richtig interpretieren.
+Der Abbiegevorgang wird nämlich durch einen animierten Pfeil in die jeweilige Abbiegerichtung angezeigt. Dies könnte von einigen auch so
+verstanden werden, dass sie rechts oder links an mir vorbeifahren sollen. Daher werde ich - sicherlich auch aus rechtlichen Gründen - weiterhin
+per Hand meinen Abbiegevorgang ankündigen.
+

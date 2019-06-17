@@ -1,0 +1,27 @@
+CLOSED: [2017-05-08 Mon 21:45]
+:LOGBOOK:
+- State "DONE"       from ""           [2017-05-08 Mon 21:45]
+:END:
+:PROPERTIES:
+:CREATED:  [2017-05-08 Mon 21:45]
+:ID: 2017-05-08-defbrowser
+:END:
+
+Seit ein paar Monaten bin ich mit meinem Standardbrowser [[https://www.mozilla.org/en-US/firefox/products/][firefox]] nicht
+mehr zufrieden. Meiner Meinung nach wird er immer speicherhungriger
+und die Performance schlechter. In meiner Firma habe ich als
+Alternative [[https://vivaldi.com/?lang%3Den][vivaldi]] kennengelernt. Dieser gefällt mir besser, da er
+sich sehr leicht anpassen lässt und ich habe das Gefühl, dass er
+deutlich performanter als mein bisheriger Browser ist.
+
+Auf meinem x260 läuft xubuntu und aus irgendeinem Grund hat die
+Umstellung des Standardbrowsers über die GUI nicht funktioniert. Daher
+musste ich die Einstellungen über den Terminal durchführen.
+
+Dazu musste folgende Datei mit einem Editor angepasst werden:
+~/.config/mimeapps.list
+
+Ich habe einfach überall wo firefox.desktop vor kommt durch
+vivaldi.desktop ersetzt. Danach war die Standardbrowser Umstellung erfolgreich.
+
+

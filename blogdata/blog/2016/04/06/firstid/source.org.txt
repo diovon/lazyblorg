@@ -1,0 +1,36 @@
+  CLOSED: [2016-04-06 Mo 21:20]
+:LOGBOOK:
+- State "DONE"       from ""           [2016-04-06 Mo 21:20]
+:END:
+:PROPERTIES:
+:CREATED:  [2016-04-06 Mo 21:20]
+:ID: 2016-04-06-firstid
+:END:
+
+So, nun ist es auch bei mir soweit. Bin nun auch unter die Blogger gegangen. Die 140 Zeichen bei Twitter sind für das eine oder andere Thema
+doch zu wenig. Hab mich hierbei für das Blogging System
+"lazyblorg" von meinem Bruder entschieden. Gründe dafür sind einerseits, dass mir auf meinem Webspace keine Datenbanken oder
+Skriptsprachen wie PHP zur Verfügung steht und andererseits gibt es keinen komplizierten Syntax. Ein weiterer netter Nebeneffekt
+für mich ist, dass ich so endlich mehr mit orgmode in Kontakt kommen kann.
+
+** Was erwartet euch hier?
+
+Die Themen die ich in Zukunft behandeln werde, reichen von privaten Erfahrungen im Linux-Bereich, Rasperry Pi spezifisches bis hin zu
+Fahrrad und GIS Themen.
+
+Würd mich freuen, wenn der eine oder die andere hier vorbei schaut. Vielleicht helfen euch meine Erfahrungen weiter.
+
+** Impressum
+
+
+#+BEGIN_HTML
+Andreas Voit<br />
+Dr. Karl Renner Straße 57/2<br />
+2483 Ebreichsdorf Austria <br />
+pvimpressum <span style="color:grey">{at)</span> Andreas <span style="color:grey">(dash]</span> Voit <span style="color:grey">[dot)</span> at
+#+END_HTML
+
+Wenn du mir eine email senden willst, verwende bitte GnuPG zum Signieren oder Verschlüsseln. Mein Schlüssel-ID lautet 75BB3578
+und der Fingerprint 75E3 E3BF CD00 1270 40CC DE11 2B36 C847 75BB 3578.
+Bitte vergleiche den ganzen Fingerprint, da es sehr einfach ist Schlüssel mit der gleichen Schlüssel-ID zu erstellen.
+

@@ -1,0 +1,58 @@
+  CLOSED: [2017-02-20 Mon 20:30]
+:LOGBOOK:
+- State "DONE"       from ""           [2017-02-20 Mon 20:30]
+:END:
+:PROPERTIES:
+:CREATED:  [2017-02-20 Mon 20:30]
+:ID: 2017-02-20-androidos
+:END:
+
+Ende letzten Jahres wurde die Entwicklung an cyanogenmod eingestellt. Erfreulicherweise ist bis Ende des Jahres ein Nachfolgerprojekt gegründet
+worden: [[http://lineageos.org/][lineageos]]
+Am 25.12.2016 wurden bereits erste inoffizielle Releases verbreitet. Ich habe diese Chance auch genutzt und bin von CM14 auf lineageos 14
+umgestiegen. Im Grunde war das OS recht brauchbar, es gab nur ein paar störende Effekte: Bluetooth Geräte wurden nicht automatisch verbunden
+und tageweise musste ich mein N5 (Nexus 5) mehrmals neustarten, da meine SIM-Karte nicht mehr erkannt werden konnte.
+Glücklicherweise stellte ich letztes Wochenende fest, dass offizielle Releases zur Verfügung stehen.
+
+** Installation und die Hürden
+
+Nachdem ich mir die [[http://lineageos.org/Update-and-Build-Prep/][Installationshinweise]] und mein N5 näher angeschaut habe, musste ich leider feststellen, dass ich Cyanogenmod Recovery
+installiert hatte. Somit war schon mal klar, ich muss mir vorher das [[http://twrp.me/][TWRP-Recovery]] installieren. Des Weiteren wird dazu geraten, vor der
+Installation von lineageos den Speicher zu löschen (wipe unter TWRP-Recovery).
+
+Doch zu vor - als erfahrender Android-Flasher - ist es natürlich ratsam die alten Telefondaten zu sichern.
+
+Zum Sichern setzte ich einerseits auf [[https://is.gd/1if10W][Titanium Backup]] in der [[https://is.gd/LQHPZJ][Pro-Version]] (in der Pro-Version wird der Batchprozess ohne Zwischenmeldungen durchgeführt)
+und andererseits erstelle ich manuelle Kopien von meinen Kontakten,
+SMS und selbst erstellte Skripte ([[https://is.gd/TIBrQl][Tasker]]). Nachdem ich alles auf mein Notebook gesichert habe, beginnt die eigentliche Arbeit.
+
+Zuerst installiere/flashe ich das TWRP-Recovery nach einer [[https://www.xda-developers.com/how-to-install-twrp/][Anleitung]] auf mein N5.
+Nach einem Neustart speichere ich auf die interne SD-Karte folgende Dateien ab:
+
++ Aktuellste Version von [[http://opengapps.org/][opengapps]] (7.1 nano): Lineageos enthält keine Google-Apps, daher müssen diese gesondert installiert werden.
++ Letztes [[https://download.lineageos.org/][Nightly Build]] von lineageos: Im Gegensatz zu CM erscheinen die Nightly Builds wöchentlich, da noch nicht so viele Entwickler Ressourcen zur Verfügung stehen.
++ Aktuellste Version von [[https://is.gd/Z60zmA][SuperSU]]: Wird für spätere Rootrechte in lineageos benötigt.
+
+Im nächsten Schritt starte ich das N5 im Recoverymode und Lösche das bestehende System samt Dalvic-Cache.
+
+Als Erstes erfolgt die Installation von lineageos. Danach die Google-Apps und im Anschluss daran die SuperSu-Datei.
+Nach Abschluss der letzten Installation kan das N5 neugestartet werden. Nach einer kurzen Wartezeit wird man bereits mit
+dem lineageos Ladesymbol begrüßt. Anschließend sind die notwendigen Infos zu WLAN, Google-Konto, etc. anzugeben.
+
+Für die Wiederherstellung meiner alten Daten führe ich die Installation von Titanium Backup durch. Beim Löschen des Systems über TWRP wurde die
+SD-Karte nicht angegriffen, daher befand sich dort noch meine Backup-Daten. Diese lies ich nun wiederherstellen und starte danach mein N5 neu.
+Nun wurden mir meine gewohnten Homescreens angezeigt. Ein paar Anpassungen in der GUI (Batteriesymbol) musste ich allerdings schon noch
+manuell durchführen. Was noch zu erwähnen ist, dass durch die Installation alle App-Berechtigungen verloren gehen. Dies waren allerdings recht
+schnell wieder gesetzt.
+
+
+** Fazit
+
+Die Installation verlief bei mir unproblematisch. Meine Daten wie Kontakte und SMS waren wie vorher vorhanden. Überraschenderweise hat das
+Wiederherstellen von [[https://is.gd/mQ3Bpj][Signal]] hervorragend geklappt. Ich musste diesmal auch nicht einen neuen Schlüssel generieren.
+
+Sicherlich lässt sich nach einem Tag Testphase nicht viel zur Stabilität oder sonstigen Verhalten sagen, aber auf jeden Fall funktioniert die
+automatische Verbindung mit Bluetooth-Geräten besser und die SIM-Karte wurde den ganzen Tag erkannt.
+
+
+

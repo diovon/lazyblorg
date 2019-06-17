@@ -1,0 +1,65 @@
+  CLOSED: [2016-05-17 Thu 21:20]
+:LOGBOOK:
+- State "DONE"       from ""           [2016-05-17 Thu 21:20]
+:END:
+:PROPERTIES:
+:CREATED:  [2016-05-17 Thu 21:20]
+:ID: 2016-05-17-xubuntu
+:END:
+
+Update 2016-06-24: ubook-Forum-Link entfernt. Ergänzung VLC Anzeige Problem.
+
+Seit Mitte April bin ich glücklicher Besitzer eines Thinkpad X260. Da Windoof für mich nicht als Betriebssystem in Frage kommt, setze ich derzeit auf xubuntu.
+
+Die neueste LTS (Long time support) Version ist 16.04. Mit dieser Version musste ich Anfangs feststellen, dass nicht alles so läuft wie es soll.
+
+Ein großes Problem für mich stellte das nicht Schließen dürfen des Deckels, während das X260 läuft oder sich im Standby-Modus befindet. Denn danach
+nahm das System keine Taste mehr an und ich musste per Power-Taste neustarten.
+
+Wie es so im Leben ist, bin ich zum Glück nicht der einzige mit dem besagtem Problem. Nach einer kleinen Internetrecherche fand ich im ubook Forum einen
+Thread, der genau mein Problem und dessen Lösung enthielt. Da der Thread nicht mehr erreichbar ist, habe ich folgend die wichtigsten Schritte
+beschrieben.
+
+Hinweis: Des Weiteren habe ich beim Aufsetzen des Notebooks (Lenovo T560) von meinem Vater festgestellt, dass die unten beschriebene Anpassung
+auch hilft, wenn ein externer Monitor nicht erkannt wird.
+
+** Problem beim Schließen des Deckels
+
+Die Lösung des Problems ist die teilweise Deaktivierung des Intel Pstate Treibers (hat mit Energieeinsparungen zu tun).
+
+Dazu wird über den Terminal die grub-Konfigurationsdatei angepasst. In meinem Beispiel habe ich als Texteditor "nano" verwendet:
+
+sudo nano /etc/default/grub
+
+Nun muss folgende Zeile
+
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
+
+zu
+
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash etc-default-grub intel_pstate=no_hwp"
+
+geändert werden.
+
+Nach dem Speichern der Datei muss noch folgender Befehl ausgeführt werden:
+
+sudo update-grub
+
+Dadurch wird die neue grub-Konfiguration übernommen.
+
+Ich habe zur Sicherheit einen Neustart durchgeführt und danach blieb das x260 beim Schließen des Deckels stabil.
+
+** Problem Anzeige VLC
+
+Auf Grund eines Intel Sky Lakes Problems kommt es vor, dass der VLC -- aber auch andere Videoplayer -- beim
+Starten nicht in der richtigen Position erscheint. Es können noch andere Grafikprobleme auftreten, die auf dieser
+[[https://github.com/linuxenko/ubuntu-skylake-i915-video-fix][github-Seite]] erwähnt sind. Mit folgenden Zeilen kann über den Terminal eine Konfigurationsdatei heruntergeladen und
+in das System integriert werden. Nach einem Neustart sollten die Grafikprobleme nicht mehr auftreten.
+
+#+BEGIN_SRC elisp
+  cd /tmp
+  wget https://github.com/linuxenko/ubuntu-skylake-i915-video-fix/
+       releases/download/v1/20-intel.conf
+  sudo cp 20-intel.conf /usr/share/X11/xorg.conf.d/20-intel.conf
+#+END_SRC
+

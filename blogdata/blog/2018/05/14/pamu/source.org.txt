@@ -1,0 +1,130 @@
+  CLOSED: [2018-05-14 Mon 20:00]
+:LOGBOOK:
+- State "DONE"       from ""           [2018-05-14 Mon 20:00]
+:END:
+:PROPERTIES:
+:CREATED:  [2018-05-14 Mon 20:00]
+:ID: 2018-05-14-pamu
+:END:
+
+Da ich des Öfteren auf [[https://www.kickstarter.com][kickstarter]] und [[indiegogo.com/][indiegogo]] Projekte unterstütze,
+gibt es hier einen kleinen Bericht über meine neueste Erungenschaft.
+
+Es handelt sich um das Bluetooth Headset [[https://www.indiegogo.com/projects/pamu-waterproof-wireless-earbuds-never-fall-out#/][PaMu]] von der Firma padmate.
+
+#+CAPTION: PaMu in der Ladestation
+#+ATTR_HTML: :alt PaMu in der Ladestation
+#+ATTR_HTML: :align center :width 560
+[[tsfile:PaMu_in_pod.jpg]]
+
+** PaMu - Warum?
+
+Ihr fragt euch sicherlich, was ist so toll dran? Es gibt ja schon jede
+Menge Headsets, was ist schon so besonders dran.
+
+Hm, ok, ich gebe es zu, es war ein spontan Kauf. Es gab aber auch
+weitere Gründe für den Kauf. Einerseits lag der Preis unter € 30,-
+(war leider nur im Zuge der [[indiegogo.com/][indiegogo]] Kampagne so günstig) und
+andererseits interessierten mich die diversen Merkmale.
+
+1 - Never fall out - hm, bis jetzt ist mir jeder in-ear Kopfhörer
+  rausgefallen
+2 - Hi-Fi Audio Sound - um den Preis geht das wirklich?
+3 - Auto connects - geht das auch mit meinem Handy?
+4 - Waterproof - Im Regen oder in der Dusche Musik hören?
+5 - Portable Charging Pod - Nette Idee zum Aufladen der Kopfhörer
+6 - Touch Control - Ist die Bedienung wirklich so einfach?
+
+** Erfahrung
+
+Ich habe die PaMus erst einen Tag im Einsatz, kann aber schon etwas
+Feedback dazu geben.
+
+zu 1:
+Ja, sie sitzen wirklich fest. Bis jetzt sind sie mir nur beim
+Duschen aus dem Ohr geflutscht. Allerdings ganz klein sind sie nicht,
+wie ihr an den Bildern erkennt, aufallen tut man mit PaMu.
+
+#+CAPTION: PaMu der erste Tragetest
+#+ATTR_HTML: :alt PaMu der erste Tragetest
+#+ATTR_HTML: :align center :width 560
+[[tsfile:PaMu_im_Zimmer.jpg]]
+
+#+CAPTION: PaMu Tragetest im Garten
+#+ATTR_HTML: :alt PaMu Tragetest im Garten
+#+ATTR_HTML: :align center :width 560
+[[tsfile:PaMu_im_Garten.jpg]]
+
+zu 2:
+Die Sound-Qualität ist wirklich gut, bin zufrieden damit.
+
+zu 3:
+Erstaunlicherweise funktioniert das Verbinden sehr gut. PaMus
+aus Ladestation nehmen, schon sind sie mit Handy verbunden. PaMus in
+die Ladestation zurücklegen, schon ist die Verbindung wieder getrennt.
+
+zu 4:
+Wie bereits in Punkt 1 erwähnt, ja ich habe die PaMus beim
+Duschen ausprobiert. Es hat funktioniert, aber sie sind mir beim
+Kopfwaschen herausgefallen. Die Verbindung bzw. die Wiedergabe wurde
+bei direktem Kontakt mit dem Wasserstrahl beendet. Durch Betätigen der
+Taste an der Außenseite der PaMus wurde die Wiedergabe
+fortgesetzt. Möglicherweise ist die Druckempfindlichkeit so leicht
+eingestellt? Werde in Zukunft das Duschen damit allerdings
+unterlassen, da beim Radfahren einen PaMu im Ohr habe und beim Duschen
+meine Ohren auch waschen will. Laut Anleitung sind die PaMus
+Spritzwasser geschützt, stärkere Kontakt mit Wasser sollte vermieden
+werden. Also Duschen damit auf eigene Gefahr.
+
+zu 5:
+Das Aufladen des Pod funktioniert per beigelegten USB-Kabel. Der Pod
+hat auch einen eingebauten Akku mit dem man die PaMus unterwegs auch
+aufladen kann. Die Ladezeit beträgt ca. 1.5h (Der Pod 2h). Näheres siehe folgende
+Spezifikation von der Verpackung.
+
+#+CAPTION: PaMu Spezifikation
+#+ATTR_HTML: :alt PaMu Spezifikation
+#+ATTR_HTML: :align center :width 560
+[[tsfile:PaMu_Spezifikation.jpg]]
+
+Die PaMus liegen gut im Pod und mit dem drehbaren Deckel auch
+fest. Ich hatte zuvor schon ein ähnliches Headset, allerdings nur
+bestehend aus einem Kopfhörer und dieses war nicht so fest in der
+Ladestation, sodass beim Laden oft der Kontakt verloren ging, wenn die
+Ladestation gedreht wurde.
+
+zu 6:
+Die Bedienung ist recht simpel. Bei der Außenseite von beiden
+Kopfhörern handelt es sich um eine Multifunktionstaste.
+1x Tippen - Musik starten, Pause, Anruf entgegen nehmen oder Anruf auflegen
+2x Tippen - nächstes Lied, Anruf ablehnen
+
+Mehr Funktionalität wird leider nicht geboten. Interessant für mich wäre noch
+eine Lautstärken Regelung gewesen.
+
+Die Qualität beim Musikhören habe ich oben bereits erwähnt. Beim
+Telefonieren ist es meiner Erfahrung nach abhängig, wo man
+telefoniert. Meiner Mutter hab ich ein Paar PaMus geschenkt und sie
+war beim Telefonieren im Zimmer mit der Qualität zufrieden.
+Bei meiner heutigen Heimfahrt mit dem Rad konnte mich mein
+Gesprächspartner leider nicht verstehen. Im Büro habe ich es kurz als
+Headset verwendet und hatte beim Telefonieren ebenfalls
+Verständigungsprobleme. Hauptaugenmerkt für die Produzenten war
+anscheinend die Audiowiedergabe als die Verwendung zum Telefonieren.
+
+Ein Hinweis: Da ich beim Radfahren nicht beide PaMus gleichzeitig
+verwenden kann, da sie sehr gut die Umgebungsgeräusche wegfiltern,
+musste ich folgenden Hack durchführen. Die PaMus funktionieren normal
+nur, wenn beide aus dem Pod entnommen wurden. Wenn allerdings die
+Kontakte eines PaMus mit etwas Klebeband oder in meinem Fall mit einem
+Ringverstärker verklebt werden, kann man auch nur einen PaMu
+verwenden. Wichtig: Den rechten PaMu im Pod lassen, da der Linke der
+Hauptpod ist. Dies zeigt sich deutlich beim Telefonieren, da nur am
+linken PaMu der Gesprächspartner zu hören ist.
+
+#+CAPTION: Hack um nur einen PaMu zu verwenden
+#+ATTR_HTML: :alt Hack um nur einen Kopfhörer zu verwenden
+#+ATTR_HTML: :align center :width 560
+[[tsfile:PaMu_Hack.jpg]]
+
+

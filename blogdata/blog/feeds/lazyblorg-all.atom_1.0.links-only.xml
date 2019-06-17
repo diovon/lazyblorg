@@ -1,0 +1,240 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns="http://www.w3.org/2005/Atom"
+      xmlns:thr="http://purl.org/syndication/thread/1.0"
+      xml:lang="en-us">
+  <link rel="self" href="http://Andreas-Voit.at/feeds/lazyblorg-all.atom_1.0.links-only.xml" />
+  <title type="text">Blog von Andreas Voit</title>
+  <id>http://Andreas-Voit.at/</id>
+  <link href="http://Andreas-Voit.at" />
+  <icon>/favicon.ico</icon>
+  <updated>2019-06-16T22:19:18+01:00</updated>
+  <author>
+    <name>Andreas Voit</name>
+  </author>
+  <subtitle type="text">Blog von Andreas Voit</subtitle>
+  <rights>All content written by Andreas Voit</rights>
+  <generator uri='https://github.com/novoid/lazyblorg'>Generated from Org-mode source code using lazyblorg which is written in Python. Industrial-strength technology, baby.</generator>
+<!-- ############################################################################################# -->
+<entry>
+    <title type="text">Blog is back oder Wie ich meinen Blog wiederhergestellt habe</title>
+    <link href='http://Andreas-Voit.at/2019/06/16/blogback' />
+    <published>2019-06-16T21:30:00+01:00</published>
+    <updated>2019-06-16T21:30:00+01:00</updated>
+    <category scheme='http://Andreas-Voit.at/tags/lazyblorg' term='lazyblorg' />
+    <id>http://Andreas-Voit.at/2019/06/16/blogback-from-feed-with-links</id>
+</entry>
+<!-- ############################################################################################# -->
+<entry>
+    <title type="text">PaMu - True Wireless headphone</title>
+    <link href='http://Andreas-Voit.at/2018/05/14/pamu' />
+    <published>2018-05-14T20:00:00+01:00</published>
+    <updated>2018-05-14T20:00:00+01:00</updated>
+    <category scheme='http://Andreas-Voit.at/tags/android' term='android' />
+    <id>http://Andreas-Voit.at/2018/05/14/pamu-from-feed-with-links</id>
+</entry>
+<!-- ############################################################################################# -->
+<entry>
+    <title type="text">Es liegt was in der Luft</title>
+    <link href='http://Andreas-Voit.at/2018/01/20/feinstaub' />
+    <published>2018-01-20T20:00:00+01:00</published>
+    <updated>2018-01-20T20:00:00+01:00</updated>
+    <category scheme='http://Andreas-Voit.at/tags/rpi' term='rpi' />
+    <id>http://Andreas-Voit.at/2018/01/20/feinstaub-from-feed-with-links</id>
+</entry>
+<!-- ############################################################################################# -->
+<entry>
+    <title type="text">Respekt ist was der Welt fehlt</title>
+    <link href='http://Andreas-Voit.at/2017/12/30/respect' />
+    <published>2017-12-30T21:15:00+01:00</published>
+    <updated>2017-12-30T21:15:00+01:00</updated>
+    <id>http://Andreas-Voit.at/2017/12/30/respect-from-feed-with-links</id>
+</entry>
+<!-- ############################################################################################# -->
+<entry>
+    <title type="text">Dual SIM - Meine ersten Erfahrungen & Ticks</title>
+    <link href='http://Andreas-Voit.at/2017/10/09/dualsim' />
+    <published>2017-10-09T23:00:00+01:00</published>
+    <updated>2017-10-09T23:00:00+01:00</updated>
+    <category scheme='http://Andreas-Voit.at/tags/android' term='android' />
+    <id>http://Andreas-Voit.at/2017/10/09/dualsim-from-feed-with-links</id>
+</entry>
+<!-- ############################################################################################# -->
+<entry>
+    <title type="text">Staubsauger Kauf - Dyson</title>
+    <link href='http://Andreas-Voit.at/2017/09/17/dyson' />
+    <published>2017-09-17T12:00:00+01:00</published>
+    <updated>2017-09-17T12:00:00+01:00</updated>
+    <id>http://Andreas-Voit.at/2017/09/17/dyson-from-feed-with-links</id>
+</entry>
+<!-- ############################################################################################# -->
+<entry>
+    <title type="text">Ändern Standardbrowser unter xubuntu</title>
+    <link href='http://Andreas-Voit.at/2017/05/08/defbrowser' />
+    <published>2017-05-08T21:45:00+01:00</published>
+    <updated>2017-05-08T21:45:00+01:00</updated>
+    <category scheme='http://Andreas-Voit.at/tags/howto' term='howto' />
+    <id>http://Andreas-Voit.at/2017/05/08/defbrowser-from-feed-with-links</id>
+</entry>
+<!-- ############################################################################################# -->
+<entry>
+    <title type="text">Batteriebetriebene Fahrradbeleuchtung</title>
+    <link href='http://Andreas-Voit.at/2017/02/28/bikelight' />
+    <published>2017-02-28T20:15:00+01:00</published>
+    <updated>2017-02-28T20:15:00+01:00</updated>
+    <category scheme='http://Andreas-Voit.at/tags/bike' term='bike' />
+    <id>http://Andreas-Voit.at/2017/02/28/bikelight-from-feed-with-links</id>
+</entry>
+<!-- ############################################################################################# -->
+<entry>
+    <title type="text">Nexus 5 Umstieg auf lineageos 14.1</title>
+    <link href='http://Andreas-Voit.at/2017/02/20/androidos' />
+    <published>2017-02-20T20:30:00+01:00</published>
+    <updated>2017-02-20T20:30:00+01:00</updated>
+    <category scheme='http://Andreas-Voit.at/tags/android' term='android' />
+    <id>http://Andreas-Voit.at/2017/02/20/androidos-from-feed-with-links</id>
+</entry>
+<!-- ############################################################################################# -->
+<entry>
+    <title type="text">Seatylock</title>
+    <link href='http://Andreas-Voit.at/2017/01/08/seatylock' />
+    <published>2017-01-08T20:30:00+01:00</published>
+    <updated>2017-01-08T20:30:00+01:00</updated>
+    <category scheme='http://Andreas-Voit.at/tags/bike' term='bike' />
+    <category scheme='http://Andreas-Voit.at/tags/security' term='security' />
+    <id>http://Andreas-Voit.at/2017/01/08/seatylock-from-feed-with-links</id>
+</entry>
+<!-- ############################################################################################# -->
+<entry>
+    <title type="text">Neujahrsvorsatz: Aufhören mit FB</title>
+    <link href='http://Andreas-Voit.at/2017/01/02/fbade' />
+    <published>2017-01-02T23:00:00+01:00</published>
+    <updated>2017-01-02T23:00:00+01:00</updated>
+    <category scheme='http://Andreas-Voit.at/tags/privacy' term='privacy' />
+    <id>http://Andreas-Voit.at/2017/01/02/fbade-from-feed-with-links</id>
+</entry>
+<!-- ############################################################################################# -->
+<entry>
+    <title type="text">Radkleidung für Schlechtwetter</title>
+    <link href='http://Andreas-Voit.at/2016/12/02/bike' />
+    <published>2016-12-02T22:05:00+01:00</published>
+    <updated>2016-12-02T22:05:00+01:00</updated>
+    <category scheme='http://Andreas-Voit.at/tags/bike' term='bike' />
+    <id>http://Andreas-Voit.at/2016/12/02/bike-from-feed-with-links</id>
+</entry>
+<!-- ############################################################################################# -->
+<entry>
+    <title type="text">Warum ich wählen gehe?</title>
+    <link href='http://Andreas-Voit.at/2016/11/20/wahl' />
+    <published>2016-11-20T21:00:00+01:00</published>
+    <updated>2016-11-20T21:00:00+01:00</updated>
+    <category scheme='http://Andreas-Voit.at/tags/politik' term='politik' />
+    <id>http://Andreas-Voit.at/2016/11/20/wahl-from-feed-with-links</id>
+</entry>
+<!-- ############################################################################################# -->
+<entry>
+    <title type="text">JOSM Plugin selber bauen</title>
+    <link href='http://Andreas-Voit.at/2016/11/16/josm' />
+    <published>2016-11-16T23:20:00+01:00</published>
+    <updated>2016-11-16T23:20:00+01:00</updated>
+    <category scheme='http://Andreas-Voit.at/tags/osm' term='osm' />
+    <category scheme='http://Andreas-Voit.at/tags/github' term='github' />
+    <id>http://Andreas-Voit.at/2016/11/16/josm-from-feed-with-links</id>
+</entry>
+<!-- ############################################################################################# -->
+<entry>
+    <title type="text">Altes Android System auf neuem Nexus 5 wiederherstellen</title>
+    <link href='http://Andreas-Voit.at/2016/11/06/nanobackup' />
+    <published>2016-11-06T16:30:00+01:00</published>
+    <updated>2016-11-06T16:30:00+01:00</updated>
+    <category scheme='http://Andreas-Voit.at/tags/android' term='android' />
+    <category scheme='http://Andreas-Voit.at/tags/howto' term='howto' />
+    <id>http://Andreas-Voit.at/2016/11/06/nanobackup-from-feed-with-links</id>
+</entry>
+<!-- ############################################################################################# -->
+<entry>
+    <title type="text">Fahrrad Gadget: Rücklicht + Blinker</title>
+    <link href='http://Andreas-Voit.at/2016/09/26/bikelight' />
+    <published>2016-09-26T18:55:00+01:00</published>
+    <updated>2016-09-26T18:55:00+01:00</updated>
+    <category scheme='http://Andreas-Voit.at/tags/bike' term='bike' />
+    <id>http://Andreas-Voit.at/2016/09/26/bikelight-from-feed-with-links</id>
+</entry>
+<!-- ############################################################################################# -->
+<entry>
+    <title type="text">Onionshare - sicherer und anonymer Datenaustausch</title>
+    <link href='http://Andreas-Voit.at/2016/07/21/onion' />
+    <published>2016-07-21T18:55:00+01:00</published>
+    <updated>2016-07-21T18:55:00+01:00</updated>
+    <category scheme='http://Andreas-Voit.at/tags/privacy' term='privacy' />
+    <id>http://Andreas-Voit.at/2016/07/21/onion-from-feed-with-links</id>
+</entry>
+<!-- ############################################################################################# -->
+<entry>
+    <title type="text">Aufbewahrung Wertsachen beim Schwimmen</title>
+    <link href='http://Andreas-Voit.at/2016/07/01/waterbag' />
+    <published>2016-07-01T11:20:00+01:00</published>
+    <updated>2016-07-01T11:20:00+01:00</updated>
+    <id>http://Andreas-Voit.at/2016/07/01/waterbag-from-feed-with-links</id>
+</entry>
+<!-- ############################################################################################# -->
+<entry>
+    <title type="text">Raspberry PI - MediaCenter</title>
+    <link href='http://Andreas-Voit.at/2016/06/26/rpimedia' />
+    <published>2016-06-26T23:24:00+01:00</published>
+    <updated>2016-06-26T23:24:00+01:00</updated>
+    <category scheme='http://Andreas-Voit.at/tags/rpi' term='rpi' />
+    <id>http://Andreas-Voit.at/2016/06/26/rpimedia-from-feed-with-links</id>
+</entry>
+<!-- ############################################################################################# -->
+<entry>
+    <title type="text">About</title>
+    <link href='http://Andreas-Voit.at/about' />
+    <published>2016-06-23T22:04:00+01:00</published>
+    <updated>2016-06-23T22:04:00+01:00</updated>
+    <category scheme='http://Andreas-Voit.at/tags/lazyblorg' term='lazyblorg' />
+    <id>http://Andreas-Voit.at/about-from-feed-with-links</id>
+</entry>
+<!-- ############################################################################################# -->
+<entry>
+    <title type="text">About</title>
+    <link href='http://Andreas-Voit.at/2016/06/23/finalstart' />
+    <published>2016-06-23T21:44:00+01:00</published>
+    <updated>2016-06-23T21:44:00+01:00</updated>
+    <category scheme='http://Andreas-Voit.at/tags/lazyblorg' term='lazyblorg' />
+    <id>http://Andreas-Voit.at/2016/06/23/finalstart-from-feed-with-links</id>
+</entry>
+<!-- ############################################################################################# -->
+<entry>
+    <title type="text">Nexus 5 - CM13 Upgrade</title>
+    <link href='http://Andreas-Voit.at/2016/06/05/nexus5cm13' />
+    <published>2016-06-05T10:39:00+01:00</published>
+    <updated>2016-06-05T10:39:00+01:00</updated>
+    <category scheme='http://Andreas-Voit.at/tags/android' term='android' />
+    <id>http://Andreas-Voit.at/2016/06/05/nexus5cm13-from-feed-with-links</id>
+</entry>
+<!-- ############################################################################################# -->
+<entry>
+    <title type="text">Lenovo Xubuntu 16.04 Hacks</title>
+    <link href='http://Andreas-Voit.at/2016/05/17/xubuntu' />
+    <published>2016-05-17T21:20:00+01:00</published>
+    <updated>2016-05-17T21:20:00+01:00</updated>
+    <category scheme='http://Andreas-Voit.at/tags/hacks' term='hacks' />
+    <id>http://Andreas-Voit.at/2016/05/17/xubuntu-from-feed-with-links</id>
+</entry>
+<!-- ############################################################################################# -->
+<entry>
+    <title type="text">GLT16</title>
+    <link href='http://Andreas-Voit.at/2016/05/05/glt16' />
+    <published>2016-05-05T09:20:00+01:00</published>
+    <updated>2016-05-05T09:20:00+01:00</updated>
+    <category scheme='http://Andreas-Voit.at/tags/glt' term='glt' />
+    <id>http://Andreas-Voit.at/2016/05/05/glt16-from-feed-with-links</id>
+</entry>
+<!-- ############################################################################################# -->
+<entry>
+    <title type="text">lazyblorg</title>
+    <link href='http://Andreas-Voit.at/2016/04/06/firstid' />
+    <published>2016-04-06T21:20:00+01:00</published>
+    <updated>2016-04-06T21:20:00+01:00</updated>
+    <id>http://Andreas-Voit.at/2016/04/06/firstid-from-feed-with-links</id>
+</entry></feed>
