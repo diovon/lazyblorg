@@ -81,7 +81,7 @@ CUSTOMIZED_IMAGE_LINK_KEY = 'tsfile'  # short for "time-stamp filename"
 ## compared to the original file are stored here and copied to the target directory
 ## on blog data generation time.
 ## EMPTY string or non-existing path to a folder if image cache is disabled.
-IMAGE_CACHE_DIRECTORY = os.path.join(os.path.expanduser("~"), *"src/lazyblorg/testdata/imagecache".split('/'))
+IMAGE_CACHE_DIRECTORY = os.path.join(os.path.expanduser("~"), *".cache/tmpblogpics/".split('/'))
 
 ## string: path to the Memacs index for filenametimestamps
 ## Note that the method below is the safe one that works on Windows
@@ -89,13 +89,13 @@ IMAGE_CACHE_DIRECTORY = os.path.join(os.path.expanduser("~"), *"src/lazyblorg/te
 ## like "/home/user/dir1/memacs_files.org_archive" as string.
 ## EMPTY string if including images via Memacs index is disabled
 ## Please do read the documentation: https://github.com/novoid/lazyblorg/wiki/Orgmode-Elements#images
-MEMACS_FILE_WITH_IMAGE_FILE_INDEX = os.path.join(os.path.expanduser("~"), "org", "memacs", "files.org_archive")
+MEMACS_FILE_WITH_IMAGE_FILE_INDEX = "" # os.path.join(os.path.expanduser("~"), "org", "memacs", "files.org_archive")
 
 ## string: path to a directory that holds image files (+ sub-directories)
 ## EMPTY string if including images via traversing the file system is disabled
 ## Please do read the documentation: https://github.com/novoid/lazyblorg/wiki/Orgmode-Elements#images
 DIRECTORIES_WITH_IMAGE_ORIGINALS = ["/home/andreas/Bilder/blogpics/"]
-                                   # os.path.join(os.path.expanduser("~"), *"tmp/digicam/tmp".split('/')),
+                                   # os.path.join(os.path.expanduser("~"), *"".split('/')),
                                    # os.path.join(os.path.expanduser("~"), *"tmp/digicam/oneplus5".split('/')),
                                    # os.path.join(os.path.expanduser("~"), *"archive/events_memories/2018".split('/')),
                                    # os.path.join(os.path.expanduser("~"), *"archive/fromweb/cliparts".split('/'))]
